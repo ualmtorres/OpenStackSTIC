@@ -1,0 +1,330 @@
+////
+NO CAMBIAR!!
+Codificación, idioma, tabla de contenidos, tipo de documento
+////
+:encoding: utf-8
+:lang: es
+:toc: right
+:toc-title: Tabla de contenidos
+:doctype: book
+:imagesdir: ./images
+
+
+////
+Nombre y título del trabajo
+////
+# OpenStack-DI
+Cloud-DI Team <clouddi@ual.es>
+
+
+// NO CAMBIAR!! (Entrar en modo no numerado de apartados)
+:numbered!: 
+
+
+image:di.png[]
+
+[abstract]
+== Resumen
+
+OpenStack-DI es el servicio de Infraestructura como servicio (IaaS) del Departamento de Informática de la Universidad de Almería. Actualmente ofrece servicios de máquinas virtuales y almacenamiento de volúmenes.
+
+OpenStack-DI además, es el soporte para el resto de servicios _cloud_ del Departamento (Cloud-DI), como son servidores virtuales para almacenamiento de archivos, gestión de proyectos, control de versiones, automatización de tareas y autenticación de usuarios.
+
+////
+***************************************************
+////
+.Objetivo
+* Ofrecer Infraestructura como servicio de apoyo a docencia e investigación.
+
+// Entrar en modo numerado de apartados
+:numbered:
+
+
+////
+***************************************************
+////
+
+== Servicios que ofrece OpenStack-DI
+
+OpenStack-DI es el proyecto de Cloud-DI que ofrece Infraestructura como servicio. Pese a ser el proyecto de base sobre el que se sustenta el cloud del Departamento de Informática, lo consideramos como un componente más. 
+
+Actualmente, OpenStack-DI ofrece:
+
+* Servicios para la creación de Máquinas y laboratorios virtuales.
+* Servicios de almacenamiento para la creación de volúmenes.
+
+== Servicios que ofrece Cloud-DI
+
+Algunos de los servidores del Departamento de Informática, como los de control de versiones y gestión de proyectos, son realmente máquinas virtuales creadas dentro de OpenStack-DI.
+
+* Almacenamiento de archivos (http://owncloud.di.ual.es[owncloud.di.ual.es]). Actúa como un _Dropbox_ privado.
+* Gestión de proyectos/peticiones (http://redmine.di.ual.es[redmine.di.ual.es])
+* Control de versiones Git (http://gitlabdoc.ual.es[gitlabdoc.ual.es])
+* Control de versiones Subversion (http://svndoc.ual.es[svndoc.ual.es])
+* Automatización de tareas (http://jenkins.di.ual.es[jenkins.di.ual.es])
+* Moodle (http://moodle.di.ual.es[moodle.di.ual.es])
+* Autenticación de usuarios (http://ldap.di.ual.e`s)
+
+
+== Infraestructura de OpenStack-DI
+
+=== Plataforma de producción
+
+* Servidores de cómputo: 12
+* RAM disponible: 2.304 GB
+* Núcleos: 384
+* Espacio disponible para instancias: 32,4 TB
+* Almacenamiento disponible para volúmenes: 21,7 TB
+
+=== Plataforma de pruebas
+
+* Servidores de cómputo: 3
+* RAM disponible: 94,2 GB
+* Núcleos: 48
+* Espacio disponible para instancias: 1.9 TB
+* Almacenamiento disponible para volúmenes: 10,8 TB
+* Almacenamiento de objetos
+* Almacenamiento de archivos compartido
+
+== Acceso a Cloud-DI
+
+Todos los recursos de Cloud-DI, ya sean de OpenStack-DI, o servidores de apoyo a docencia de Cloud-DI sólo son accesibles desde la red de la UAL.
+
+[WARNING]
+====
+Para el acceso a los recursos de Cloud-DI desde fuera de la UAL, será necesario usar una conexión VPN. Consulta http://vpn.ual.es[vpn.ual.es] para configurar tu acceso a la VPN de la UAL. 
+====
+
+== Primeros pasos en OpenStack-DI
+
+Para utilizar OpenStack-DI es necesario disponer de una cuenta de usuario. El acceso sólo está permitido desde la red de la UAL. El acceso desde fuera de la UAL se realizará mediante VPN.
+
+=== Solicitud de cuenta de usuario
+
+. Solicita a mailto:clouddi@ual.es[clouddi@ual.es] tu acceso a OpenStack-DI. Te proporcionarán un dominio, un login y un password de acceso.
+
+. Introduce tus credenciales en http://openstack.di.ual.es[openstack.di.ual.es]. Una vez dentro del sistema tendrás acceso a un _proyecto_ OpenStack.
+
++
+[NOTE]
+====
+Un proyecto OpenStack es un conjunto de recursos disponible para uno o más usuarios. Los recursos básicos son núcleos (VCPU), RAM, espacio de almacenamiento, y demás.
+
+De forma predeterminada cada usuario tiene un proyecto. No obstante, un mismo usuario puede ser miembro de más de un proyecto (p.e. _Laboratorio ARSO, TIC-211, Laboratorio Sistemas de Información_)
+====
+
+=== Cambio de la contraseña
+
+Para cambiar la clave proporcionada despliega el menú de las opciones del usuario conectado situado en la parte superior derecha y selecciona `Settings`.  
+
+image::Settings.png[]
+
+Se desplegará un menú en la izquierda. A continuación, selecciona `Change password`.
+
+image::ChangePassword.png[]
+
+=== Registra tus claves SSH
+
+Para el acceso SSH a máquinas virtuales Linux es necesario registrar la clave SSH pública en la cuenta de usuario OpenStack. Las clave pública SSH será inyectada a las instancias creadas en el proceso de inicialización. 
+
+. Inicia sesión en OpenStack-DI (http://openstack.di.ual.es[openstack.di.ual.es]).
+. En el menú de la izquierda selecciona `Project | Compute | Key Pairs`
+. Si dispones de una clave SSH, pulsa el botón `Import Key Pair`. En el formulario, introduce en `Key Pair Name` el nombre que quieres asignar a tu clave pública en OpenStack y pega tu clave pública en el cuadro de texto `Public Key`.
+
++
+image::ImportKeyPair.png[]
+
++
+[NOTE]
+====
+En el mismo formulario de importación de claves SSH aparecen los pasos a seguir en sistemas Linux o Mac para crear tu clave SSH. También puedes usar esos comandos en sistemas Windows si tienes instalado un emulador BASH como Git Bash
+====
+
++
+[TIP]
+====
+Instala https://git-scm.com/download/win[Git for Windows] en tu sistema Windows. Este software, además de instalar Git para control de versiones, instalará Git BASH en tu sistema, un emulador BASH que te será muy útil para la conexión SSH a máquinas virtuales Linux desde tu sistema Windows.
+====
+
+. Si no dispones de una clave SSH o bien no quieres o no puedes generarla, OpenStack puede crear tu par de claves. Para crear tu par de claves desde OpenStack pulsa el botón `Create Key Pair`. Introduce en el formulario el nombre que quieras a dar a tu clave SSH 
+
++
+image::CreateKeypair.png[]
+
++
+A continuación, pulsa el botón `Create Key Pair`. Descarga la clave generada.
+
++
+image::DownloadKeyPair.png[]
+
+=== Configuración de las Reglas de seguridad
+
+En OpenStack, cada proyecto tiene sus propias reglas de seguridad que funciona a modo de cortafuegos sobre las instancias definidas en el proyecto. 
+
+De forma predeterminada, las instancias creadas no se pueden comunicar con el exterior. Configura las reglas de seguridad (p.e. abriendo los puertos SSH, RDP para escritorio remoto de Windows, HTTP para servidores web, ...) de tu proyecto para que se pueda acceder de forma adecuada a las instancias.
+
+La configuración básica de las reglas de seguridad se puede realizar en el menú `Project | Network | Security Groups`.  Desde ahí podrás configurar las reglas predeterminadas (`default`) para todas las máquinas virtuales de un proyecto o crear nuevos grupos de seguridad con reglas específicas.
+
+image::SecurityGroups.png[Grupos de seguridad]
+
+Pulsando el botón `Manage Rules` accedemos a las reglas de seguridad predeterminadas (`default`) de este proyecto. Por tanto, las máquinas virtuales creadas en este proyecto a las que se apliquen las reglas de seguridad `default` tendr´an abierta la comunicación de acuerdo con las reglas indicadas en el grupo de seguridad.
+
+[NOTE]
+====
+De forma predeterminada, el grupo de seguridad `default` no incorpora ninguna regla de seguridad, por lo que hasta que no se le añadan reglas de seguridad, o se creeen grupos de seguridad que añadan reglas, no será posible establecer comunicación con las instancias creadas.
+====
+
+Pulsa el botón `Add Rule` para añadir reglas de seguridad. En el formulario selecciona la regla de seguridad aplicable a las instancias.
+
+image::AddRule.png[]
+
+[TIP]
+====
+Si añades las reglas RDP (puerto 3389) y HTTP (80) permitirás el acceso de Escritorio remoto (útil para conexión a instancias Windows) y Apache (útil para aplicaciones web)
+====
+
+image::ManageSecurityGroupRules.png[Grupos de seguridad]
+
+[NOTE]
+====
+Añade la regla SSH (puerto 22) para establecer una conexión SSH (útil para conexión a la terminal de instancias Linux).
+====
+
+[IMPORTANT]
+====
+El STIC sólo tiene abiertos en la red Cloud-DI los puertos 80 (HHTP), 22 (SSH) y 3389 (RDP) para la conexión VPN. No podrás establecer conexiones a otros puertos desde fuera de la UAL aunque estés usando la conexión VPN.
+====
+
+=== Creación de una máquina virtual
+
+Puedes crear una máquina virtual seleccionando `Project | Compute | Instances` y pulsando el botón `Launch instance`
+
+En el asistente deberás proporcionar:
+
+* Paso 1: Nombre de la instancia y cantidad de instancias a crear. La zona de disponibilidad siempre es `nova`. El formulario también muestra el total de instancias (máquinas virtuales) creadas y disponibles.
+
+image::LaunchInstanceDetails.png[]
+
+* Paso 2: En la fuente, selecciona `Image` o `Image snapshot` dependiendo de si quieres crear una instancia a partir de una imagen limpia o de un snapshot, respectivamente. La selección de la imagen base para la instancia se realizará a partir del cuadro inferior, el cual se podrá filtrar introduciendo en el cuadro de búsqueda alguno de los caracteres del nombre de la imagen.
+
+[NOTE]
+====
+Las imágenes de Windows y de XUbuntu están disponibles como _Image snapshot_, no como _Image_.
+====
+
+
+[IMPORTANT]
+====
+Desactiva la creación de un nuevo volumen asociado a la instancia. 
+Si más adelante necesitas crear uno o más volúmenes para tu instancia, podrás crearlos desde el menú de volúmenes (`Project | Compute | Volumes`).
+====
+
+image::LaunchInstanceSource.png[Selección de una imagen base para la instancia]
+
+* Paso 3. Sabor de las instancias creadas. OpenStack denomina _sabor_ a un conjunto de propiedades que representan las características hardware de las instancias a crear (número de cores, RAM, espacio de disco). Selecciona un sabor adecuado para la instancia a crear.
+
+image::LaunchInstanceFlavor.png[]
+
+[NOTE]
+====
+Una señal de advertencia puede estar indicando un sabor demasiado pequeño para la instancia a crear o una superación de la cuota de los recursos del proyecto.
+====
+
+* Paso 4. Red a la que conectar la instancia creada. Seleccionar entre las redes disponibles la red a la que conectar la máquina virtual. Normalmente, conectaremos la instancia en la red del proyecto, aunque es posible conectarla a cualquier otra red que tengamos creada.
+
+image::LaunchInstanceNetworks.png[]
+
+* Paso 5. Selección de grupos de seguridad. Los grupos seleccionados estableceran los puertos y el tipo de comunicación permitida con la instancia creada. Selecciona todos los grupos de seguridad aplicables a la instancia creada. 
+
+image::LaunchInstanceSecurityGroups.png[]
+
+* Paso 6. Selección de la clave pública. Para instancias Linux deberemos seleccionar la clave pública a inyectar a la instancia creada. Dicha clave será la que se emparejará con nuestra clave privada local en el momento de la conexión SSH.
+
+image::LaunchInstanceKeyPair.png[]
+
+Pulsar el botón `Launch Instance` para proceder a la creación de la instancia. Tras unos instantes la instancia estará creada y disponible para su uso.
+
+[NOTE]
+====
+En máquinas Windows no es necesario inyectar la clave pública.
+====
+
+=== Asignación de IP flotante
+
+Las instancias creadas son conectadas a una de las redes privadas de un proyecto OpensStack. Inicialmente, es posible la comunicación entre las instancias de dicha red. Pero de forma predeterminada, no es posible la conexión a la instancia creada desde nuestro equipo de trabajo, o en general, desde otro equipo que esté fuera de la red del proyecto en el que se ha creado la máquina virtual.
+
+Podemos ver la instancia creada y conectada a la red del proyecto en el menú `Project | Network | Network Topology`.
+
+image::NetworkTopology.png[]
+
+Las IPs flotantes son la base para la comunicación con la instancia desde fuera de la red donde fue creada. Nuestro proyecto tiene una cuota de IPs flotantes y deberemos gestionarlas de forma eficiente.image
+
+Para asignar una IP flotante a una instancia, mostrar en primer lugar la lista de instancias (`Project | Compute | Instances`). A continuación, seleccionar `Associate Floating IP` en el menú desplegable de la instancia.
+
+image::AssociateFloatingIP.png[]
+
+En el formulario, pulsar el botón `+` para pedir una IP flotante. 
+
+image::ManageFloatingIPAssociations.png[]
+
+El formulario siguiente muestra la red que propocionará las IPs flotantes (`ext-net`), que es la red que el STIC proporciona a Cloud-DI. En este formulario pulsaremos el botón `Allocate IP`.
+
+image::AllocateFloatingIP.png[]
+
+[NOTE]
+====
+El STIC tiene reservada la red 192.168.64.0/21 para Cloud-DI. El Cloud-DI Team ha reservado un pequeño conjunto de estas IPs para la gestión del propio cloud, quedando como pool de direcciones IPs disponibles desde 192.168.64.21 hasta 192.168.71.255, lo que supone más de 2000 direcciones IP para máquinas virtuales.
+====
+
+De vuelta al formulario, se mostrará la IP flotante asignada de la red `ext-net`. Pulsar el botón `Associate`.
+
+image::AssignedFloatingIP.png[]
+
+Ahora la instancia aparecerá con la IP flotante asignada, la cual podremos usar para conectarnos a ella desde fuera de la red privada de OpenStack en la que se creó.
+
+image::InstanceWithFloatingIP.png[]
+
+=== Conexión a la máquina virtual
+
+Una vez creada la máquina virtual y asignada una IP flotante en el caso de que queramos conectarnos a ella desde una red diferente a la que fue creada, usaremos un cliente para conectarnos a ella usando un cliente.
+
+
+.Clientes habituales de conexión a máquinas virtuales
+[width="100%",options="header"]
+|====================
+| Sistema operativo | Uso                        | Cliente recomendado
+| Linux             | Terminal                   | Terminal
+|                   | Linux con Interfaz gráfica | X2Go  
+|                   | Máquina Windows            | Remmina
+| Mac               | Terminal                   | Terminal
+|                   | Linux con Interfaz gráfica | X2Go  
+|                   | Máquina Windows            | Microsoft Remote Desktop
+| Windows           | Terminal                   | Git BASH, Putty
+|                   | Linux Interfaz gráfica     | X2Go  
+|                   | Máquina Windows            | Cliente de escritorio remoto
+
+|====================
+
+== Próximamente
+
+Actualmente tenemos en fase de prueba y listos para pasar a producción los siguientes componentes de OpenStack:
+
+* Orquestación de recursos OpenStack
+* Balancedor como servicio (LBaaS)
+* Almacenamiento de objetos 
+* Almacenamiento compartido de archivos
+* Servicio de telemetría y alarma
+* Contenedores como servicio (CaaS)
+* Framework de procesamiento Big Data
+
+== Recursos complementarios
+
+* http://moodle.di.ual.es[Curso online de libre acceso sobre uso básico de OpenStack-DI en moodle.di.ual.es].
+
+* https://docs.openstack.org/ocata/user-guide/dashboard.html[Guía de usuario oficial de OpenStack]
+
+
+
+
+
+
