@@ -149,7 +149,7 @@ Instala https://git-scm.com/download/win[Git for Windows] en tu sistema Windows.
 . Si no dispones de una clave SSH o bien no quieres o no puedes generarla, OpenStack puede crear tu par de claves. Para crear tu par de claves desde OpenStack pulsa el botón `Create Key Pair`. Introduce en el formulario el nombre que quieras a dar a tu clave SSH 
 
 +
-image::CreateKeypair.png[]
+image::CreateKeyPair.png[]
 
 +
 A continuación, pulsa el botón `Create Key Pair`. Descarga la clave generada.
