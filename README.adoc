@@ -51,7 +51,7 @@ OpenStack-DI es el proyecto de Cloud-DI que ofrece Infraestructura como servicio
 Actualmente, OpenStack-DI ofrece:
 
 * Servicios para la creación de Máquinas y laboratorios virtuales.
-* Servicios de almacenamiento para la creación de volúmenes.
+* Servicios de Almacenamiento para la creación de volúmenes.
 
 == Servicios que ofrece Cloud-DI
 
@@ -88,11 +88,11 @@ Algunos de los servidores del Departamento de Informática, como los de control 
 
 == Acceso a Cloud-DI
 
-Todos los recursos de Cloud-DI, ya sean de OpenStack-DI, o servidores de apoyo a docencia de Cloud-DI sólo son accesibles desde la red de la UAL.
+Todos los recursos de Cloud-DI, ya sean de OpenStack-DI, o servidores de apoyo a docencia de Cloud-DI, sólo son accesibles desde la red de la UAL.
 
 [WARNING]
 ====
-Para el acceso a los recursos de Cloud-DI desde fuera de la UAL, será necesario usar una conexión VPN. Consulta http://vpn.ual.es[vpn.ual.es] para configurar tu acceso a la VPN de la UAL. 
+Para el acceso a los recursos de Cloud-DI desde fuera de la UAL será necesario usar una conexión VPN. Consulta http://vpn.ual.es[vpn.ual.es] para configurar tu acceso a la VPN de la UAL. 
 ====
 
 == Primeros pasos en OpenStack-DI
@@ -108,7 +108,7 @@ Para utilizar OpenStack-DI es necesario disponer de una cuenta de usuario. El ac
 +
 [NOTE]
 ====
-Un proyecto OpenStack es un conjunto de recursos disponible para uno o más usuarios. Los recursos básicos son núcleos (VCPU), RAM, espacio de almacenamiento, y demás.
+Un proyecto OpenStack es un conjunto de recursos disponible para uno o más usuarios. Ejemplos de recursos básicos son los núcleos de procesador (VCPU), RAM o espacio de almacenamiento.
 
 De forma predeterminada cada usuario tiene un proyecto. No obstante, un mismo usuario puede ser miembro de más de un proyecto (p.e. _Laboratorio ARSO, TIC-211, Laboratorio Sistemas de Información_)
 ====
@@ -146,7 +146,7 @@ En el mismo formulario de importación de claves SSH aparecen los pasos a seguir
 Instala https://git-scm.com/download/win[Git for Windows] en tu sistema Windows. Este software, además de instalar Git para control de versiones, instalará Git BASH en tu sistema, un emulador BASH que te será muy útil para la conexión SSH a máquinas virtuales Linux desde tu sistema Windows.
 ====
 
-. Si no dispones de una clave SSH o bien no quieres o no puedes generarla, OpenStack puede crear tu par de claves. Para crear tu par de claves desde OpenStack pulsa el botón `Create Key Pair`. Introduce en el formulario el nombre que quieras a dar a tu clave SSH 
+. Si no dispones de una clave SSH o bien no quieres o no puedes generarla, OpenStack puede crear tu par de claves. Para crear tu par de claves desde OpenStack pulsa el botón `Create Key Pair`. Introduce en el formulario el nombre que quieras a dar a tu clave SSH.
 
 +
 image::CreateKeyPair.png[]
@@ -159,36 +159,35 @@ image::DownloadKeyPair.png[]
 
 === Configuración de las Reglas de seguridad
 
-En OpenStack, cada proyecto tiene sus propias reglas de seguridad que funciona a modo de cortafuegos sobre las instancias definidas en el proyecto. 
+En OpenStack, cada proyecto tiene sus propias reglas de seguridad, y funcionan a modo de cortafuegos sobre las instancias definidas en el proyecto. 
 
 De forma predeterminada, las instancias creadas no se pueden comunicar con el exterior. Configura las reglas de seguridad (p.e. abriendo los puertos SSH, RDP para escritorio remoto de Windows, HTTP para servidores web, ...) de tu proyecto para que se pueda acceder de forma adecuada a las instancias.
 
 La configuración básica de las reglas de seguridad se puede realizar en el menú `Project | Network | Security Groups`.  Desde ahí podrás configurar las reglas predeterminadas (`default`) para todas las máquinas virtuales de un proyecto o crear nuevos grupos de seguridad con reglas específicas.
 
-image::SecurityGroups.png[Grupos de seguridad]
+Pulsando el botón `Manage Rules` accedemos a las reglas de seguridad predeterminadas (`default`) de este proyecto. Por tanto, las máquinas virtuales creadas en este proyecto a las que se apliquen las reglas de seguridad `default` tendrían abierta la comunicación de acuerdo con las reglas indicadas en el grupo de seguridad.
 
-Pulsando el botón `Manage Rules` accedemos a las reglas de seguridad predeterminadas (`default`) de este proyecto. Por tanto, las máquinas virtuales creadas en este proyecto a las que se apliquen las reglas de seguridad `default` tendr´an abierta la comunicación de acuerdo con las reglas indicadas en el grupo de seguridad.
+image::SecurityGroups.png[Grupos de seguridad]
 
 [NOTE]
 ====
-De forma predeterminada, el grupo de seguridad `default` no incorpora ninguna regla de seguridad, por lo que hasta que no se le añadan reglas de seguridad, o se creeen grupos de seguridad que añadan reglas, no será posible establecer comunicación con las instancias creadas.
+De forma predeterminada, el grupo de seguridad `default` no incorpora ninguna regla de seguridad. Hasta que no se le añadan reglas de seguridad, o se creeen grupos de seguridad que añadan reglas de seguridad, no será posible establecer comunicación con las instancias creadas.
 ====
 
 Pulsa el botón `Add Rule` para añadir reglas de seguridad. En el formulario selecciona la regla de seguridad aplicable a las instancias.
 
 image::AddRule.png[]
 
-[TIP]
+[NOTE]
 ====
-Si añades las reglas RDP (puerto 3389) y HTTP (80) permitirás el acceso de Escritorio remoto (útil para conexión a instancias Windows) y Apache (útil para aplicaciones web)
+Reglas se seguridad básicas:
+
+* RDP (puerto 3389): Acceso de Escritorio remoto. Util para conexión a instancias Windows.
+* HTTP (puerto 80): Util para aplicaciones web con servidor Apache.
+* SSH (puerto 22): Para establecer una conexión SSH. Util para conexión a la terminal de instancias Linux.
 ====
 
 image::ManageSecurityGroupRules.png[Grupos de seguridad]
-
-[NOTE]
-====
-Añade la regla SSH (puerto 22) para establecer una conexión SSH (útil para conexión a la terminal de instancias Linux).
-====
 
 [IMPORTANT]
 ====
@@ -201,7 +200,9 @@ Para más información sobre la configuración del acceso y seguridad de las ins
 ****
 === Creación de una máquina virtual
 
-Puedes crear una máquina virtual seleccionando `Project | Compute | Instances` y pulsando el botón `Launch instance`
+Puedes crear una máquina virtual seleccionando `Project | Compute | Instances` y pulsando el botón `Launch instance`.
+
+image::LaunchInstanceButton.png[]
 
 En el asistente deberás proporcionar:
 
@@ -266,7 +267,7 @@ Podemos ver la instancia creada y conectada a la red del proyecto en el menú `P
 
 image::NetworkTopology.png[]
 
-Las IPs flotantes son la base para la comunicación con la instancia desde fuera de la red donde fue creada. Nuestro proyecto tiene una cuota de IPs flotantes y deberemos gestionarlas de forma eficiente.image
+Las IPs flotantes son la base para la comunicación con la instancia desde fuera de la red donde fue creada. Nuestro proyecto tiene una cuota de IPs flotantes y deberemos gestionarlas de forma eficiente.
 
 Para asignar una IP flotante a una instancia, mostrar en primer lugar la lista de instancias (`Project | Compute | Instances`). A continuación, seleccionar `Associate Floating IP` en el menú desplegable de la instancia.
 
@@ -282,7 +283,7 @@ image::AllocateFloatingIP.png[]
 
 [NOTE]
 ====
-El STIC tiene reservada la red 192.168.64.0/21 para Cloud-DI. El Cloud-DI Team ha reservado un pequeño conjunto de estas IPs para la gestión del propio cloud, quedando como pool de direcciones IPs disponibles desde 192.168.64.21 hasta 192.168.71.255, lo que supone más de 2000 direcciones IP para máquinas virtuales.
+El STIC tiene reservada la red 192.168.64.0/21 para Cloud-DI. Cloud-DI Team ha reservado un pequeño conjunto de estas IPs para la gestión del propio cloud, quedando como pool de direcciones IPs disponibles desde 192.168.64.21 hasta 192.168.71.255, lo que supone más de 2000 direcciones IP para máquinas virtuales.
 ====
 
 De vuelta al formulario, se mostrará la IP flotante asignada de la red `ext-net`. Pulsar el botón `Associate`.
@@ -314,15 +315,35 @@ Una vez creada la máquina virtual y asignada una IP flotante en el caso de que 
 
 |====================
 
+== Imágenes disponibles en OpenStack-DI
+
+Actualmente están disponibles las imágenes siguientes en OpenStack-DI:
+
+
+.Imágenes en OpenStack-DI y modos de acceso
+[width="100%",cols="^,^,^",options="header"]
+|====================
+| Image | Login | Modo de acceso
+| Ubuntu 16.04 LTS | ubuntu | Key Pair 
+| CentOS 6 | centos | Key Pair  
+| cirros | cirros | Key Pair 
+| Xubuntu 16.04 LTS | clouduser | Contraseña 
+| Windows Server 2012 | Administrator | Contraseña 
+|====================
+
+[NOTE]
+====
+Contacta con mailto:clouddi@ual.es[clouddi@ual.es] para obtener la contraseña para instancias en las que el modo de acceso no sea con Key Pair.
+====
 == Uso de volúmenes en OpenStack-DI
 
-OpenStack ofrece el servicio de almacenamiento de bloques, lo que nos permite poder crear volúmenes y conectarlos a máquinas virtuales. Los volúmenes nos dan almacenamiento persistente, entendido como que el volumen se conserva a pesar de que se elimine la máquina virtual a la que está conectado.
+OpenStack ofrece un servicio de almacenamiento de bloques, lo que nos permite poder crear volúmenes y conectarlos a máquinas virtuales. Los volúmenes nos dan almacenamiento persistente, entendido como que el volumen se conserva a pesar de que se elimine la máquina virtual a la que está conectado.
 
 === Creación de un volumen
 
-. Inicia sesión en http://openstack.di.ual.es[OpenStack-DI]
-. Selecciona el proyecto en el que crear el volumen
-. En el menú de la izquierda selecciona `Project | Compute | Volumes`
+. Inicia sesión en http://openstack.di.ual.es[OpenStack-DI].
+. Selecciona el proyecto en el que crear el volumen.
+. En el menú de la izquierda selecciona `Project | Compute | Volumes`.
 . En la pestaña `Volumes` pulsa el botón `Create Volume`.
 
 +
@@ -335,7 +356,7 @@ image::CreateVolume.png[]
 
 . Pulsa el botón `Create Volume`.
 
-Tras unos instances el volumen aparecerá en la lista de volúmenes creados y disponible para ser conectado a una instancia.
+Tras unos instantes el volumen aparecerá en la lista de volúmenes creados y disponible para ser conectado a una instancia.
 
 === Conexión de un volumen a una instancia
 
@@ -346,15 +367,15 @@ Una vez creado un volumen, éste puede ser conectado a una instancia.
 Un volumen sólo puede estar conectado a una instancia. Para conectarlo a otra instancia, el volumen tendrá que ser desconectado previamente.
 ====
 
-. Inicia sesión en http://openstack.di.ual.es[OpenStack-DI]
-. Selecciona el proyecto en el que crear el volumen
-. En el menú de la izquierda selecciona `Project | Compute | Volumes`
+. Inicia sesión en http://openstack.di.ual.es[OpenStack-DI].
+. Selecciona el proyecto en el que crear el volumen.
+. En el menú de la izquierda selecciona `Project | Compute | Volumes`.
 . En la pestaña `Volumes` selecciona el volumen que quieras conectar a una instancia, despliega el listbox de `Actions` y selecciona `Manage Attachments`.
 
 +
 image::ManageAttachmentsOption.png[]
 
-. Selecciona en el formulario la instancia a la conectar el volumen
+. Selecciona en el formulario la instancia a la que conectar el volumen.
 
 image::ManageVolumeAttachments.png[]
 
@@ -373,20 +394,20 @@ Para más información sobre la creación y administración de volúmenes consul
 
 Un volumen sólo se puede utilizar en el proyecto al que pertence, pudiendo intercambiarse entre las distintas máquinas virtuales del proyecto. Sin embargo, hay situaciones en las que estamos interesados en usar un volumen en una instancia que tenemos en otro proyecto, o transferir el volumen a otro usuario de OpenStack-DI. Esta operación es la que se conoce como _Transferir un volumen_ en OpenStack.
 
-. Inicia sesión en http://openstack.di.ual.es[OpenStack-DI]
-. Selecciona el proyecto en el que crear el volumen
-. En el menú de la izquierda selecciona `Project | Compute | Volumes`
+. Inicia sesión en http://openstack.di.ual.es[OpenStack-DI].
+. Selecciona el proyecto en el que crear el volumen.
+. En el menú de la izquierda selecciona `Project | Compute | Volumes`.
 . En la pestaña `Volumes` selecciona el volumen que quieras transferir, despliega el listbox de `Actions` y selecciona `Create Transfer`.
 
 +
 image::CreateTransferOption.png[]
 
-. Introduce un nombre significativo de la transferencia para que pueda ser identificado clarmente por otras personas en el caso de que se vaya a transferir el volumen a otro usuario OpenStack.
+. Introduce un nombre significativo de la transferencia para que pueda ser identificado claramente por otras personas en el caso de que se vaya a transferir el volumen a otro usuario OpenStack.
 
 +
-image::CreateVolumeTransfer[]
+image::CreateVolumeTransfer.png[]
 
-. Pulsa el botón `Create Volume Transfer`. Como resultado se nos mostrará un ID de trasnferencia y una clave de autorización que debemos conservar para poder completar el proceso de transferencia del volumen. 
+. Pulsa el botón `Create Volume Transfer`. Como resultado se nos mostrará un ID de transferencia y una clave de autorización que debemos conservar para poder completar el proceso de transferencia del volumen. 
 
 +
 image::VolumeTransferDetails.png[]
@@ -423,6 +444,7 @@ Actualmente tenemos en fase de prueba y listos para pasar a producción los sigu
 
 * https://docs.openstack.org/ocata/user-guide/dashboard.html[Guía de usuario oficial de OpenStack]
 
+* https://github.com/ualmtorres/OpenStackDI/blob/master/20180212SeminarioCloud-DI.pdf[Presentación PowerPoint Seminario Cloud-DI 12-13 febrero 2018]
 
 
 
