@@ -450,15 +450,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#trueconexi-n-a-la-m-quina-virtual">5.7. Conexión a la máquina virtual</a></li>
 </ul>
 </li>
-<li><a href="#trueuso-de-vol-menes-en-openstack-di">6. Uso de volúmenes en OpenStack-DI</a>
+<li><a href="#trueim-genes-disponibles-en-openstack-di">6. Imágenes disponibles en OpenStack-DI</a></li>
+<li><a href="#trueuso-de-vol-menes-en-openstack-di">7. Uso de volúmenes en OpenStack-DI</a>
 <ul class="sectlevel2">
-<li><a href="#truecreaci-n-de-un-volumen">6.1. Creación de un volumen</a></li>
-<li><a href="#trueconexi-n-de-un-volumen-a-una-instancia">6.2. Conexión de un volumen a una instancia</a></li>
-<li><a href="#truetransferir-un-volumen-a-otro-proyecto">6.3. Transferir un volumen a otro proyecto</a></li>
+<li><a href="#truecreaci-n-de-un-volumen">7.1. Creación de un volumen</a></li>
+<li><a href="#trueconexi-n-de-un-volumen-a-una-instancia">7.2. Conexión de un volumen a una instancia</a></li>
+<li><a href="#truetransferir-un-volumen-a-otro-proyecto">7.3. Transferir un volumen a otro proyecto</a></li>
 </ul>
 </li>
-<li><a href="#truepr-ximamente">7. Próximamente</a></li>
-<li><a href="#truerecursos-complementarios">8. Recursos complementarios</a></li>
+<li><a href="#truepr-ximamente">8. Próximamente</a></li>
+<li><a href="#truerecursos-complementarios">9. Recursos complementarios</a></li>
 </ul>
 </div>
 </div>
@@ -504,7 +505,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Servicios para la creación de Máquinas y laboratorios virtuales.</p>
 </li>
 <li>
-<p>Servicios de almacenamiento para la creación de volúmenes.</p>
+<p>Servicios de Almacenamiento para la creación de volúmenes.</p>
 </li>
 </ul>
 </div>
@@ -602,7 +603,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="trueacceso-a-cloud-di"><a class="anchor" href="#trueacceso-a-cloud-di"></a>4. Acceso a Cloud-DI</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Todos los recursos de Cloud-DI, ya sean de OpenStack-DI, o servidores de apoyo a docencia de Cloud-DI sólo son accesibles desde la red de la UAL.</p>
+<p>Todos los recursos de Cloud-DI, ya sean de OpenStack-DI, o servidores de apoyo a docencia de Cloud-DI, sólo son accesibles desde la red de la UAL.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -612,7 +613,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Para el acceso a los recursos de Cloud-DI desde fuera de la UAL, será necesario usar una conexión VPN. Consulta <a href="http://vpn.ual.es">vpn.ual.es</a> para configurar tu acceso a la VPN de la UAL.</p>
+<p>Para el acceso a los recursos de Cloud-DI desde fuera de la UAL será necesario usar una conexión VPN. Consulta <a href="http://vpn.ual.es">vpn.ual.es</a> para configurar tu acceso a la VPN de la UAL.</p>
 </div>
 </td>
 </tr>
@@ -643,7 +644,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Un proyecto OpenStack es un conjunto de recursos disponible para uno o más usuarios. Los recursos básicos son núcleos (VCPU), RAM, espacio de almacenamiento, y demás.</p>
+<p>Un proyecto OpenStack es un conjunto de recursos disponible para uno o más usuarios. Ejemplos de recursos básicos son los núcleos de procesador (VCPU), RAM o espacio de almacenamiento.</p>
 </div>
 <div class="paragraph">
 <p>De forma predeterminada cada usuario tiene un proyecto. No obstante, un mismo usuario puede ser miembro de más de un proyecto (p.e. <em>Laboratorio ARSO, TIC-211, Laboratorio Sistemas de Información</em>)</p>
@@ -725,7 +726,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </li>
 <li>
-<p>Si no dispones de una clave SSH o bien no quieres o no puedes generarla, OpenStack puede crear tu par de claves. Para crear tu par de claves desde OpenStack pulsa el botón <code>Create Key Pair</code>. Introduce en el formulario el nombre que quieras a dar a tu clave SSH</p>
+<p>Si no dispones de una clave SSH o bien no quieres o no puedes generarla, OpenStack puede crear tu par de claves. Para crear tu par de claves desde OpenStack pulsa el botón <code>Create Key Pair</code>. Introduce en el formulario el nombre que quieras a dar a tu clave SSH.</p>
 <div class="imageblock">
 <div class="content">
 <img src="./images/CreateKeyPair.png" alt="CreateKeyPair.png">
@@ -746,7 +747,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="trueconfiguraci-n-de-las-reglas-de-seguridad"><a class="anchor" href="#trueconfiguraci-n-de-las-reglas-de-seguridad"></a>5.4. Configuración de las Reglas de seguridad</h3>
 <div class="paragraph">
-<p>En OpenStack, cada proyecto tiene sus propias reglas de seguridad que funciona a modo de cortafuegos sobre las instancias definidas en el proyecto.</p>
+<p>En OpenStack, cada proyecto tiene sus propias reglas de seguridad, y funcionan a modo de cortafuegos sobre las instancias definidas en el proyecto.</p>
 </div>
 <div class="paragraph">
 <p>De forma predeterminada, las instancias creadas no se pueden comunicar con el exterior. Configura las reglas de seguridad (p.e. abriendo los puertos SSH, RDP para escritorio remoto de Windows, HTTP para servidores web, &#8230;&#8203;) de tu proyecto para que se pueda acceder de forma adecuada a las instancias.</p>
@@ -754,13 +755,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>La configuración básica de las reglas de seguridad se puede realizar en el menú <code>Project | Network | Security Groups</code>.  Desde ahí podrás configurar las reglas predeterminadas (<code>default</code>) para todas las máquinas virtuales de un proyecto o crear nuevos grupos de seguridad con reglas específicas.</p>
 </div>
+<div class="paragraph">
+<p>Pulsando el botón <code>Manage Rules</code> accedemos a las reglas de seguridad predeterminadas (<code>default</code>) de este proyecto. Por tanto, las máquinas virtuales creadas en este proyecto a las que se apliquen las reglas de seguridad <code>default</code> tendrían abierta la comunicación de acuerdo con las reglas indicadas en el grupo de seguridad.</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="./images/SecurityGroups.png" alt="Grupos de seguridad">
 </div>
-</div>
-<div class="paragraph">
-<p>Pulsando el botón <code>Manage Rules</code> accedemos a las reglas de seguridad predeterminadas (<code>default</code>) de este proyecto. Por tanto, las máquinas virtuales creadas en este proyecto a las que se apliquen las reglas de seguridad <code>default</code> tendr´an abierta la comunicación de acuerdo con las reglas indicadas en el grupo de seguridad.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -770,7 +771,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </td>
 <td class="content">
 <div class="paragraph">
-<p>De forma predeterminada, el grupo de seguridad <code>default</code> no incorpora ninguna regla de seguridad, por lo que hasta que no se le añadan reglas de seguridad, o se creeen grupos de seguridad que añadan reglas, no será posible establecer comunicación con las instancias creadas.</p>
+<p>De forma predeterminada, el grupo de seguridad <code>default</code> no incorpora ninguna regla de seguridad. Hasta que no se le añadan reglas de seguridad, o se creeen grupos de seguridad que añadan reglas de seguridad, no será posible establecer comunicación con las instancias creadas.</p>
 </div>
 </td>
 </tr>
@@ -784,15 +785,28 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <img src="./images/AddRule.png" alt="AddRule.png">
 </div>
 </div>
-<div class="admonitionblock tip">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Si añades las reglas RDP (puerto 3389) y HTTP (80) permitirás el acceso de Escritorio remoto (útil para conexión a instancias Windows) y Apache (útil para aplicaciones web)</p>
+<p>Reglas se seguridad básicas:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>RDP (puerto 3389): Acceso de Escritorio remoto. Util para conexión a instancias Windows.</p>
+</li>
+<li>
+<p>HTTP (puerto 80): Util para aplicaciones web con servidor Apache.</p>
+</li>
+<li>
+<p>SSH (puerto 22): Para establecer una conexión SSH. Util para conexión a la terminal de instancias Linux.</p>
+</li>
+</ul>
 </div>
 </td>
 </tr>
@@ -802,20 +816,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <img src="./images/ManageSecurityGroupRules.png" alt="Grupos de seguridad">
 </div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Añade la regla SSH (puerto 22) para establecer una conexión SSH (útil para conexión a la terminal de instancias Linux).</p>
-</div>
-</td>
-</tr>
-</table>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -843,7 +843,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="truecreaci-n-de-una-m-quina-virtual"><a class="anchor" href="#truecreaci-n-de-una-m-quina-virtual"></a>5.5. Creación de una máquina virtual</h3>
 <div class="paragraph">
-<p>Puedes crear una máquina virtual seleccionando <code>Project | Compute | Instances</code> y pulsando el botón <code>Launch instance</code></p>
+<p>Puedes crear una máquina virtual seleccionando <code>Project | Compute | Instances</code> y pulsando el botón <code>Launch instance</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/LaunchInstanceButton.png" alt="LaunchInstanceButton.png">
+</div>
 </div>
 <div class="paragraph">
 <p>En el asistente deberás proporcionar:</p>
@@ -1003,7 +1008,7 @@ Si más adelante necesitas crear uno o más volúmenes para tu instancia, podrá
 </div>
 </div>
 <div class="paragraph">
-<p>Las IPs flotantes son la base para la comunicación con la instancia desde fuera de la red donde fue creada. Nuestro proyecto tiene una cuota de IPs flotantes y deberemos gestionarlas de forma eficiente.image</p>
+<p>Las IPs flotantes son la base para la comunicación con la instancia desde fuera de la red donde fue creada. Nuestro proyecto tiene una cuota de IPs flotantes y deberemos gestionarlas de forma eficiente.</p>
 </div>
 <div class="paragraph">
 <p>Para asignar una IP flotante a una instancia, mostrar en primer lugar la lista de instancias (<code>Project | Compute | Instances</code>). A continuación, seleccionar <code>Associate Floating IP</code> en el menú desplegable de la instancia.</p>
@@ -1037,7 +1042,7 @@ Si más adelante necesitas crear uno o más volúmenes para tu instancia, podrá
 </td>
 <td class="content">
 <div class="paragraph">
-<p>El STIC tiene reservada la red 192.168.64.0/21 para Cloud-DI. El Cloud-DI Team ha reservado un pequeño conjunto de estas IPs para la gestión del propio cloud, quedando como pool de direcciones IPs disponibles desde 192.168.64.21 hasta 192.168.71.255, lo que supone más de 2000 direcciones IP para máquinas virtuales.</p>
+<p>El STIC tiene reservada la red 192.168.64.0/21 para Cloud-DI. Cloud-DI Team ha reservado un pequeño conjunto de estas IPs para la gestión del propio cloud, quedando como pool de direcciones IPs disponibles desde 192.168.64.21 hasta 192.168.71.255, lo que supone más de 2000 direcciones IP para máquinas virtuales.</p>
 </div>
 </td>
 </tr>
@@ -1131,23 +1136,87 @@ Si más adelante necesitas crear uno o más volúmenes para tu instancia, podrá
 </div>
 </div>
 <div class="sect1">
-<h2 id="trueuso-de-vol-menes-en-openstack-di"><a class="anchor" href="#trueuso-de-vol-menes-en-openstack-di"></a>6. Uso de volúmenes en OpenStack-DI</h2>
+<h2 id="trueim-genes-disponibles-en-openstack-di"><a class="anchor" href="#trueim-genes-disponibles-en-openstack-di"></a>6. Imágenes disponibles en OpenStack-DI</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>OpenStack ofrece el servicio de almacenamiento de bloques, lo que nos permite poder crear volúmenes y conectarlos a máquinas virtuales. Los volúmenes nos dan almacenamiento persistente, entendido como que el volumen se conserva a pesar de que se elimine la máquina virtual a la que está conectado.</p>
+<p>Actualmente están disponibles las imágenes siguientes en OpenStack-DI:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 2. Imágenes en OpenStack-DI y modos de acceso</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top">Image</th>
+<th class="tableblock halign-center valign-top">Login</th>
+<th class="tableblock halign-center valign-top">Modo de acceso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Ubuntu 16.04 LTS</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">ubuntu</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Key Pair</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">CentOS 6</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">centos</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Key Pair</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">cirros</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">cirros</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Key Pair</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Xubuntu 16.04 LTS</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">clouduser</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Contraseña</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Windows Server 2012</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Administrator</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Contraseña</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Contacta con <a href="mailto:clouddi@ual.es">clouddi@ual.es</a> para obtener la contraseña para instancias en las que el modo de acceso no sea con Key Pair.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="trueuso-de-vol-menes-en-openstack-di"><a class="anchor" href="#trueuso-de-vol-menes-en-openstack-di"></a>7. Uso de volúmenes en OpenStack-DI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>OpenStack ofrece un servicio de almacenamiento de bloques, lo que nos permite poder crear volúmenes y conectarlos a máquinas virtuales. Los volúmenes nos dan almacenamiento persistente, entendido como que el volumen se conserva a pesar de que se elimine la máquina virtual a la que está conectado.</p>
 </div>
 <div class="sect2">
-<h3 id="truecreaci-n-de-un-volumen"><a class="anchor" href="#truecreaci-n-de-un-volumen"></a>6.1. Creación de un volumen</h3>
+<h3 id="truecreaci-n-de-un-volumen"><a class="anchor" href="#truecreaci-n-de-un-volumen"></a>7.1. Creación de un volumen</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Inicia sesión en <a href="http://openstack.di.ual.es">OpenStack-DI</a></p>
+<p>Inicia sesión en <a href="http://openstack.di.ual.es">OpenStack-DI</a>.</p>
 </li>
 <li>
-<p>Selecciona el proyecto en el que crear el volumen</p>
+<p>Selecciona el proyecto en el que crear el volumen.</p>
 </li>
 <li>
-<p>En el menú de la izquierda selecciona <code>Project | Compute | Volumes</code></p>
+<p>En el menú de la izquierda selecciona <code>Project | Compute | Volumes</code>.</p>
 </li>
 <li>
 <p>En la pestaña <code>Volumes</code> pulsa el botón <code>Create Volume</code>.</p>
@@ -1171,11 +1240,11 @@ Si más adelante necesitas crear uno o más volúmenes para tu instancia, podrá
 </ol>
 </div>
 <div class="paragraph">
-<p>Tras unos instances el volumen aparecerá en la lista de volúmenes creados y disponible para ser conectado a una instancia.</p>
+<p>Tras unos instantes el volumen aparecerá en la lista de volúmenes creados y disponible para ser conectado a una instancia.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueconexi-n-de-un-volumen-a-una-instancia"><a class="anchor" href="#trueconexi-n-de-un-volumen-a-una-instancia"></a>6.2. Conexión de un volumen a una instancia</h3>
+<h3 id="trueconexi-n-de-un-volumen-a-una-instancia"><a class="anchor" href="#trueconexi-n-de-un-volumen-a-una-instancia"></a>7.2. Conexión de un volumen a una instancia</h3>
 <div class="paragraph">
 <p>Una vez creado un volumen, éste puede ser conectado a una instancia.</p>
 </div>
@@ -1196,13 +1265,13 @@ Si más adelante necesitas crear uno o más volúmenes para tu instancia, podrá
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Inicia sesión en <a href="http://openstack.di.ual.es">OpenStack-DI</a></p>
+<p>Inicia sesión en <a href="http://openstack.di.ual.es">OpenStack-DI</a>.</p>
 </li>
 <li>
-<p>Selecciona el proyecto en el que crear el volumen</p>
+<p>Selecciona el proyecto en el que crear el volumen.</p>
 </li>
 <li>
-<p>En el menú de la izquierda selecciona <code>Project | Compute | Volumes</code></p>
+<p>En el menú de la izquierda selecciona <code>Project | Compute | Volumes</code>.</p>
 </li>
 <li>
 <p>En la pestaña <code>Volumes</code> selecciona el volumen que quieras conectar a una instancia, despliega el listbox de <code>Actions</code> y selecciona <code>Manage Attachments</code>.</p>
@@ -1213,7 +1282,7 @@ Si más adelante necesitas crear uno o más volúmenes para tu instancia, podrá
 </div>
 </li>
 <li>
-<p>Selecciona en el formulario la instancia a la conectar el volumen</p>
+<p>Selecciona en el formulario la instancia a la que conectar el volumen.</p>
 </li>
 </ol>
 </div>
@@ -1243,20 +1312,20 @@ Si más adelante necesitas crear uno o más volúmenes para tu instancia, podrá
 </div>
 </div>
 <div class="sect2">
-<h3 id="truetransferir-un-volumen-a-otro-proyecto"><a class="anchor" href="#truetransferir-un-volumen-a-otro-proyecto"></a>6.3. Transferir un volumen a otro proyecto</h3>
+<h3 id="truetransferir-un-volumen-a-otro-proyecto"><a class="anchor" href="#truetransferir-un-volumen-a-otro-proyecto"></a>7.3. Transferir un volumen a otro proyecto</h3>
 <div class="paragraph">
 <p>Un volumen sólo se puede utilizar en el proyecto al que pertence, pudiendo intercambiarse entre las distintas máquinas virtuales del proyecto. Sin embargo, hay situaciones en las que estamos interesados en usar un volumen en una instancia que tenemos en otro proyecto, o transferir el volumen a otro usuario de OpenStack-DI. Esta operación es la que se conoce como <em>Transferir un volumen</em> en OpenStack.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Inicia sesión en <a href="http://openstack.di.ual.es">OpenStack-DI</a></p>
+<p>Inicia sesión en <a href="http://openstack.di.ual.es">OpenStack-DI</a>.</p>
 </li>
 <li>
-<p>Selecciona el proyecto en el que crear el volumen</p>
+<p>Selecciona el proyecto en el que crear el volumen.</p>
 </li>
 <li>
-<p>En el menú de la izquierda selecciona <code>Project | Compute | Volumes</code></p>
+<p>En el menú de la izquierda selecciona <code>Project | Compute | Volumes</code>.</p>
 </li>
 <li>
 <p>En la pestaña <code>Volumes</code> selecciona el volumen que quieras transferir, despliega el listbox de <code>Actions</code> y selecciona <code>Create Transfer</code>.</p>
@@ -1267,15 +1336,15 @@ Si más adelante necesitas crear uno o más volúmenes para tu instancia, podrá
 </div>
 </li>
 <li>
-<p>Introduce un nombre significativo de la transferencia para que pueda ser identificado clarmente por otras personas en el caso de que se vaya a transferir el volumen a otro usuario OpenStack.</p>
+<p>Introduce un nombre significativo de la transferencia para que pueda ser identificado claramente por otras personas en el caso de que se vaya a transferir el volumen a otro usuario OpenStack.</p>
 <div class="imageblock">
 <div class="content">
-<img src="./images/CreateVolumeTransfer" alt="CreateVolumeTransfer">
+<img src="./images/CreateVolumeTransfer.png" alt="CreateVolumeTransfer.png">
 </div>
 </div>
 </li>
 <li>
-<p>Pulsa el botón <code>Create Volume Transfer</code>. Como resultado se nos mostrará un ID de trasnferencia y una clave de autorización que debemos conservar para poder completar el proceso de transferencia del volumen.</p>
+<p>Pulsa el botón <code>Create Volume Transfer</code>. Como resultado se nos mostrará un ID de transferencia y una clave de autorización que debemos conservar para poder completar el proceso de transferencia del volumen.</p>
 <div class="imageblock">
 <div class="content">
 <img src="./images/VolumeTransferDetails.png" alt="VolumeTransferDetails.png">
@@ -1310,7 +1379,7 @@ Si más adelante necesitas crear uno o más volúmenes para tu instancia, podrá
 </div>
 </div>
 <div class="sect1">
-<h2 id="truepr-ximamente"><a class="anchor" href="#truepr-ximamente"></a>7. Próximamente</h2>
+<h2 id="truepr-ximamente"><a class="anchor" href="#truepr-ximamente"></a>8. Próximamente</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Actualmente tenemos en fase de prueba y listos para pasar a producción los siguientes componentes de OpenStack:</p>
@@ -1343,7 +1412,7 @@ Si más adelante necesitas crear uno o más volúmenes para tu instancia, podrá
 </div>
 </div>
 <div class="sect1">
-<h2 id="truerecursos-complementarios"><a class="anchor" href="#truerecursos-complementarios"></a>8. Recursos complementarios</h2>
+<h2 id="truerecursos-complementarios"><a class="anchor" href="#truerecursos-complementarios"></a>9. Recursos complementarios</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -1353,6 +1422,9 @@ Si más adelante necesitas crear uno o más volúmenes para tu instancia, podrá
 <li>
 <p><a href="https://docs.openstack.org/ocata/user-guide/dashboard.html">Guía de usuario oficial de OpenStack</a></p>
 </li>
+<li>
+<p><a href="https://github.com/ualmtorres/OpenStackDI/blob/master/20180212SeminarioCloud-DI.pdf">Presentación PowerPoint Seminario Cloud-DI 12-13 febrero 2018</a></p>
+</li>
 </ul>
 </div>
 </div>
@@ -1360,7 +1432,7 @@ Si más adelante necesitas crear uno o más volúmenes para tu instancia, podrá
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-02-11 09:50:56 CET
+Last updated 2018-02-12 00:27:34 CET
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">
