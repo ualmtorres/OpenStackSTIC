@@ -57,13 +57,13 @@ Actualmente, OpenStack-DI ofrece:
 
 Algunos de los servidores del Departamento de Informática, como los de control de versiones y gestión de proyectos, son realmente máquinas virtuales creadas dentro de OpenStack-DI.
 
-* Almacenamiento de archivos (http://owncloud.di.ual.es[owncloud.di.ual.es]). Actúa como un _Dropbox_ privado.
+* Almacenamiento de archivos (http://owncloud.di.ual.es/owncloud[owncloud.di.ual.es]). Actúa como un _Dropbox_ privado.
 * Gestión de proyectos/peticiones (http://redmine.di.ual.es[redmine.di.ual.es])
 * Control de versiones Git (http://gitlabdoc.ual.es[gitlabdoc.ual.es])
 * Control de versiones Subversion (http://svndoc.ual.es[svndoc.ual.es])
 * Automatización de tareas (http://jenkins.di.ual.es[jenkins.di.ual.es])
 * Moodle (http://moodle.di.ual.es[moodle.di.ual.es])
-* Autenticación de usuarios (http://ldap.di.ual.e`s)
+* Autenticación de usuarios (http://ldap.di.ual.es[ldap.di.ual.es])
 
 
 == Infraestructura de OpenStack-DI
@@ -195,6 +195,10 @@ Añade la regla SSH (puerto 22) para establecer una conexión SSH (útil para co
 El STIC sólo tiene abiertos en la red Cloud-DI los puertos 80 (HHTP), 22 (SSH) y 3389 (RDP) para la conexión VPN. No podrás establecer conexiones a otros puertos desde fuera de la UAL aunque estés usando la conexión VPN.
 ====
 
+.Consulta la guía de uso oficial de OpenStack
+****
+Para más información sobre la configuración del acceso y seguridad de las instancias consulta la  https://docs.openstack.org/ocata/user-guide/configure-access-and-security-for-instances.html[Guía de uso oficial de OpenStack]
+****
 === Creación de una máquina virtual
 
 Puedes crear una máquina virtual seleccionando `Project | Compute | Instances` y pulsando el botón `Launch instance`
@@ -249,6 +253,11 @@ Pulsar el botón `Launch Instance` para proceder a la creación de la instancia.
 En máquinas Windows no es necesario inyectar la clave pública.
 ====
 
+.Consulta la guía de uso oficial de OpenStack
+****
+Para más información sobre la creación de instancias consulta la  https://docs.openstack.org/ocata/user-guide/dashboard-launch-instances.html[Guía de uso oficial de OpenStack]
+****
+
 === Asignación de IP flotante
 
 Las instancias creadas son conectadas a una de las redes privadas de un proyecto OpensStack. Inicialmente, es posible la comunicación entre las instancias de dicha red. Pero de forma predeterminada, no es posible la conexión a la instancia creada desde nuestro equipo de trabajo, o en general, desde otro equipo que esté fuera de la red del proyecto en el que se ha creado la máquina virtual.
@@ -290,20 +299,111 @@ Una vez creada la máquina virtual y asignada una IP flotante en el caso de que 
 
 
 .Clientes habituales de conexión a máquinas virtuales
-[width="100%",options="header"]
+[width="100%",cols="^,^,^",options="header"]
 |====================
 | Sistema operativo | Uso                        | Cliente recomendado
 | Linux             | Terminal                   | Terminal
-|                   | Linux con Interfaz gráfica | X2Go  
-|                   | Máquina Windows            | Remmina
+|                   | Linux con Interfaz gráfica | https://wiki.x2go.org/doku.php/download:start[X2Go] 
+|                   | Máquina Windows            | https://www.remmina.org/wp/[Remmina]
 | Mac               | Terminal                   | Terminal
-|                   | Linux con Interfaz gráfica | X2Go  
-|                   | Máquina Windows            | Microsoft Remote Desktop
-| Windows           | Terminal                   | Git BASH, Putty
-|                   | Linux Interfaz gráfica     | X2Go  
+|                   | Linux con Interfaz gráfica | https://wiki.x2go.org/doku.php/download:start[X2Go]  
+|                   | Máquina Windows            | https://itunes.apple.com/us/app/microsoft-remote-desktop-10/id1295203466?mt=12[Microsoft Remote Desktop]
+| Windows           | Terminal                   | https://git-scm.com/download/win[Git BASH], Putty
+|                   | Linux Interfaz gráfica     | https://wiki.x2go.org/doku.php/download:start[X2Go]  
 |                   | Máquina Windows            | Cliente de escritorio remoto
 
 |====================
+
+== Uso de volúmenes en OpenStack-DI
+
+OpenStack ofrece el servicio de almacenamiento de bloques, lo que nos permite poder crear volúmenes y conectarlos a máquinas virtuales. Los volúmenes nos dan almacenamiento persistente, entendido como que el volumen se conserva a pesar de que se elimine la máquina virtual a la que está conectado.
+
+=== Creación de un volumen
+
+. Inicia sesión en http://openstack.di.ual.es[OpenStack-DI]
+. Selecciona el proyecto en el que crear el volumen
+. En el menú de la izquierda selecciona `Project | Compute | Volumes`
+. En la pestaña `Volumes` pulsa el botón `Create Volume`.
+
++
+image::CreateVolumeButton.png[]
+
+. En el formulario introduce los valores para el nombre del volumen y el tamaño. 
+
++
+image::CreateVolume.png[]
+
+. Pulsa el botón `Create Volume`.
+
+Tras unos instances el volumen aparecerá en la lista de volúmenes creados y disponible para ser conectado a una instancia.
+
+=== Conexión de un volumen a una instancia
+
+Una vez creado un volumen, éste puede ser conectado a una instancia.
+
+[IMPORTANT]
+====
+Un volumen sólo puede estar conectado a una instancia. Para conectarlo a otra instancia, el volumen tendrá que ser desconectado previamente.
+====
+
+. Inicia sesión en http://openstack.di.ual.es[OpenStack-DI]
+. Selecciona el proyecto en el que crear el volumen
+. En el menú de la izquierda selecciona `Project | Compute | Volumes`
+. En la pestaña `Volumes` selecciona el volumen que quieras conectar a una instancia, despliega el listbox de `Actions` y selecciona `Manage Attachments`.
+
++
+image::ManageAttachmentsOption.png[]
+
+. Selecciona en el formulario la instancia a la conectar el volumen
+
+image::ManageVolumeAttachments.png[]
+
+Tras unos instantes el volumen aparecerá conectado a la instancia indicando que está en uso y el dispositivo en el que está disponible.
+
+image::VolumeAttached.png[]
+
+A continuación sigue los pasos del sistema operativo en el que se haya conectado el volumen para inicializarlo (crear tabla de particiones, formatear, montar, ...)
+
+.Consulta la guía de uso oficial de OpenStack
+****
+Para más información sobre la creación y administración de volúmenes consulta la  https://docs.openstack.org/ocata/user-guide/dashboard-manage-volumes.html[Guía de uso oficial de OpenStack]
+****
+
+=== Transferir un volumen a otro proyecto
+
+Un volumen sólo se puede utilizar en el proyecto al que pertence, pudiendo intercambiarse entre las distintas máquinas virtuales del proyecto. Sin embargo, hay situaciones en las que estamos interesados en usar un volumen en una instancia que tenemos en otro proyecto, o transferir el volumen a otro usuario de OpenStack-DI. Esta operación es la que se conoce como _Transferir un volumen_ en OpenStack.
+
+. Inicia sesión en http://openstack.di.ual.es[OpenStack-DI]
+. Selecciona el proyecto en el que crear el volumen
+. En el menú de la izquierda selecciona `Project | Compute | Volumes`
+. En la pestaña `Volumes` selecciona el volumen que quieras transferir, despliega el listbox de `Actions` y selecciona `Create Transfer`.
+
++
+image::CreateTransferOption.png[]
+
+. Introduce un nombre significativo de la transferencia para que pueda ser identificado clarmente por otras personas en el caso de que se vaya a transferir el volumen a otro usuario OpenStack.
+
++
+image::CreateVolumeTransfer[]
+
+. Pulsa el botón `Create Volume Transfer`. Como resultado se nos mostrará un ID de trasnferencia y una clave de autorización que debemos conservar para poder completar el proceso de transferencia del volumen. 
+
++
+image::VolumeTransferDetails.png[]
+
+. Descargar el arvhivo con los datos de la transferencia pulsando el botón `Download transfer credentials`. El volumen quedará pendiente de que se complete el proceso aceptando la transferencia.
+
++
+image::AwaitingTransfer.png[]
+
+. En el proyecto de destino de la transferencia pulsar el botón `Accept Transfer`.
+. Introducir en el formulario los valores de ID de transferencia y Clave de autorización que descargamos en el archivo de credenciales de la transferencia
+
++
+image::AcceptVolumeTransfer.png[]
+
+. Pulsar el botón `Accept Volume Transfer`. El volumen aparecerá transferido en la lista de volúmenes disponibles del proyecto de destino.
+
 
 == Próximamente
 

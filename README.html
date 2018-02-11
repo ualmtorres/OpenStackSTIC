@@ -450,8 +450,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#trueconexi-n-a-la-m-quina-virtual">5.7. Conexión a la máquina virtual</a></li>
 </ul>
 </li>
-<li><a href="#truepr-ximamente">6. Próximamente</a></li>
-<li><a href="#truerecursos-complementarios">7. Recursos complementarios</a></li>
+<li><a href="#trueuso-de-vol-menes-en-openstack-di">6. Uso de volúmenes en OpenStack-DI</a>
+<ul class="sectlevel2">
+<li><a href="#truecreaci-n-de-un-volumen">6.1. Creación de un volumen</a></li>
+<li><a href="#trueconexi-n-de-un-volumen-a-una-instancia">6.2. Conexión de un volumen a una instancia</a></li>
+<li><a href="#truetransferir-un-volumen-a-otro-proyecto">6.3. Transferir un volumen a otro proyecto</a></li>
+</ul>
+</li>
+<li><a href="#truepr-ximamente">7. Próximamente</a></li>
+<li><a href="#truerecursos-complementarios">8. Recursos complementarios</a></li>
 </ul>
 </div>
 </div>
@@ -512,7 +519,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist">
 <ul>
 <li>
-<p>Almacenamiento de archivos (<a href="http://owncloud.di.ual.es">owncloud.di.ual.es</a>). Actúa como un <em>Dropbox</em> privado.</p>
+<p>Almacenamiento de archivos (<a href="http://owncloud.di.ual.es/owncloud">owncloud.di.ual.es</a>). Actúa como un <em>Dropbox</em> privado.</p>
 </li>
 <li>
 <p>Gestión de proyectos/peticiones (<a href="http://redmine.di.ual.es">redmine.di.ual.es</a>)</p>
@@ -530,7 +537,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Moodle (<a href="http://moodle.di.ual.es">moodle.di.ual.es</a>)</p>
 </li>
 <li>
-<p>Autenticación de usuarios (<a href="http://ldap.di.ual.e`s" class="bare">http://ldap.di.ual.e`s</a>)</p>
+<p>Autenticación de usuarios (<a href="http://ldap.di.ual.es">ldap.di.ual.es</a>)</p>
 </li>
 </ul>
 </div>
@@ -824,6 +831,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </table>
 </div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Consulta la guía de uso oficial de OpenStack</div>
+<div class="paragraph">
+<p>Para más información sobre la configuración del acceso y seguridad de las instancias consulta la  <a href="https://docs.openstack.org/ocata/user-guide/configure-access-and-security-for-instances.html">Guía de uso oficial de OpenStack</a></p>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="truecreaci-n-de-una-m-quina-virtual"><a class="anchor" href="#truecreaci-n-de-una-m-quina-virtual"></a>5.5. Creación de una máquina virtual</h3>
@@ -965,6 +980,14 @@ Si más adelante necesitas crear uno o más volúmenes para tu instancia, podrá
 </tr>
 </table>
 </div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Consulta la guía de uso oficial de OpenStack</div>
+<div class="paragraph">
+<p>Para más información sobre la creación de instancias consulta la  <a href="https://docs.openstack.org/ocata/user-guide/dashboard-launch-instances.html">Guía de uso oficial de OpenStack</a></p>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="trueasignaci-n-de-ip-flotante"><a class="anchor" href="#trueasignaci-n-de-ip-flotante"></a>5.6. Asignación de IP flotante</h3>
@@ -1051,56 +1074,56 @@ Si más adelante necesitas crear uno o más volúmenes para tu instancia, podrá
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Sistema operativo</th>
-<th class="tableblock halign-left valign-top">Uso</th>
-<th class="tableblock halign-left valign-top">Cliente recomendado</th>
+<th class="tableblock halign-center valign-top">Sistema operativo</th>
+<th class="tableblock halign-center valign-top">Uso</th>
+<th class="tableblock halign-center valign-top">Cliente recomendado</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Linux</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Terminal</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Terminal</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Linux</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Terminal</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Terminal</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Linux con Interfaz gráfica</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">X2Go</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Linux con Interfaz gráfica</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://wiki.x2go.org/doku.php/download:start">X2Go</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Máquina Windows</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Remmina</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Máquina Windows</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://www.remmina.org/wp/">Remmina</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mac</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Terminal</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Terminal</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Mac</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Terminal</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Terminal</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Linux con Interfaz gráfica</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">X2Go</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Linux con Interfaz gráfica</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://wiki.x2go.org/doku.php/download:start">X2Go</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Máquina Windows</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft Remote Desktop</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Máquina Windows</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://itunes.apple.com/us/app/microsoft-remote-desktop-10/id1295203466?mt=12">Microsoft Remote Desktop</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Windows</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Terminal</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Git BASH, Putty</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Windows</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Terminal</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://git-scm.com/download/win">Git BASH</a>, Putty</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Linux Interfaz gráfica</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">X2Go</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Linux Interfaz gráfica</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock"><a href="https://wiki.x2go.org/doku.php/download:start">X2Go</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Máquina Windows</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cliente de escritorio remoto</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Máquina Windows</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Cliente de escritorio remoto</p></td>
 </tr>
 </tbody>
 </table>
@@ -1108,7 +1131,186 @@ Si más adelante necesitas crear uno o más volúmenes para tu instancia, podrá
 </div>
 </div>
 <div class="sect1">
-<h2 id="truepr-ximamente"><a class="anchor" href="#truepr-ximamente"></a>6. Próximamente</h2>
+<h2 id="trueuso-de-vol-menes-en-openstack-di"><a class="anchor" href="#trueuso-de-vol-menes-en-openstack-di"></a>6. Uso de volúmenes en OpenStack-DI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>OpenStack ofrece el servicio de almacenamiento de bloques, lo que nos permite poder crear volúmenes y conectarlos a máquinas virtuales. Los volúmenes nos dan almacenamiento persistente, entendido como que el volumen se conserva a pesar de que se elimine la máquina virtual a la que está conectado.</p>
+</div>
+<div class="sect2">
+<h3 id="truecreaci-n-de-un-volumen"><a class="anchor" href="#truecreaci-n-de-un-volumen"></a>6.1. Creación de un volumen</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Inicia sesión en <a href="http://openstack.di.ual.es">OpenStack-DI</a></p>
+</li>
+<li>
+<p>Selecciona el proyecto en el que crear el volumen</p>
+</li>
+<li>
+<p>En el menú de la izquierda selecciona <code>Project | Compute | Volumes</code></p>
+</li>
+<li>
+<p>En la pestaña <code>Volumes</code> pulsa el botón <code>Create Volume</code>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="./images/CreateVolumeButton.png" alt="CreateVolumeButton.png">
+</div>
+</div>
+</li>
+<li>
+<p>En el formulario introduce los valores para el nombre del volumen y el tamaño.</p>
+<div class="imageblock">
+<div class="content">
+<img src="./images/CreateVolume.png" alt="CreateVolume.png">
+</div>
+</div>
+</li>
+<li>
+<p>Pulsa el botón <code>Create Volume</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Tras unos instances el volumen aparecerá en la lista de volúmenes creados y disponible para ser conectado a una instancia.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueconexi-n-de-un-volumen-a-una-instancia"><a class="anchor" href="#trueconexi-n-de-un-volumen-a-una-instancia"></a>6.2. Conexión de un volumen a una instancia</h3>
+<div class="paragraph">
+<p>Una vez creado un volumen, éste puede ser conectado a una instancia.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Un volumen sólo puede estar conectado a una instancia. Para conectarlo a otra instancia, el volumen tendrá que ser desconectado previamente.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Inicia sesión en <a href="http://openstack.di.ual.es">OpenStack-DI</a></p>
+</li>
+<li>
+<p>Selecciona el proyecto en el que crear el volumen</p>
+</li>
+<li>
+<p>En el menú de la izquierda selecciona <code>Project | Compute | Volumes</code></p>
+</li>
+<li>
+<p>En la pestaña <code>Volumes</code> selecciona el volumen que quieras conectar a una instancia, despliega el listbox de <code>Actions</code> y selecciona <code>Manage Attachments</code>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="./images/ManageAttachmentsOption.png" alt="ManageAttachmentsOption.png">
+</div>
+</div>
+</li>
+<li>
+<p>Selecciona en el formulario la instancia a la conectar el volumen</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/ManageVolumeAttachments.png" alt="ManageVolumeAttachments.png">
+</div>
+</div>
+<div class="paragraph">
+<p>Tras unos instantes el volumen aparecerá conectado a la instancia indicando que está en uso y el dispositivo en el que está disponible.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/VolumeAttached.png" alt="VolumeAttached.png">
+</div>
+</div>
+<div class="paragraph">
+<p>A continuación sigue los pasos del sistema operativo en el que se haya conectado el volumen para inicializarlo (crear tabla de particiones, formatear, montar, &#8230;&#8203;)</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Consulta la guía de uso oficial de OpenStack</div>
+<div class="paragraph">
+<p>Para más información sobre la creación y administración de volúmenes consulta la  <a href="https://docs.openstack.org/ocata/user-guide/dashboard-manage-volumes.html">Guía de uso oficial de OpenStack</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="truetransferir-un-volumen-a-otro-proyecto"><a class="anchor" href="#truetransferir-un-volumen-a-otro-proyecto"></a>6.3. Transferir un volumen a otro proyecto</h3>
+<div class="paragraph">
+<p>Un volumen sólo se puede utilizar en el proyecto al que pertence, pudiendo intercambiarse entre las distintas máquinas virtuales del proyecto. Sin embargo, hay situaciones en las que estamos interesados en usar un volumen en una instancia que tenemos en otro proyecto, o transferir el volumen a otro usuario de OpenStack-DI. Esta operación es la que se conoce como <em>Transferir un volumen</em> en OpenStack.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Inicia sesión en <a href="http://openstack.di.ual.es">OpenStack-DI</a></p>
+</li>
+<li>
+<p>Selecciona el proyecto en el que crear el volumen</p>
+</li>
+<li>
+<p>En el menú de la izquierda selecciona <code>Project | Compute | Volumes</code></p>
+</li>
+<li>
+<p>En la pestaña <code>Volumes</code> selecciona el volumen que quieras transferir, despliega el listbox de <code>Actions</code> y selecciona <code>Create Transfer</code>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="./images/CreateTransferOption.png" alt="CreateTransferOption.png">
+</div>
+</div>
+</li>
+<li>
+<p>Introduce un nombre significativo de la transferencia para que pueda ser identificado clarmente por otras personas en el caso de que se vaya a transferir el volumen a otro usuario OpenStack.</p>
+<div class="imageblock">
+<div class="content">
+<img src="./images/CreateVolumeTransfer" alt="CreateVolumeTransfer">
+</div>
+</div>
+</li>
+<li>
+<p>Pulsa el botón <code>Create Volume Transfer</code>. Como resultado se nos mostrará un ID de trasnferencia y una clave de autorización que debemos conservar para poder completar el proceso de transferencia del volumen.</p>
+<div class="imageblock">
+<div class="content">
+<img src="./images/VolumeTransferDetails.png" alt="VolumeTransferDetails.png">
+</div>
+</div>
+</li>
+<li>
+<p>Descargar el arvhivo con los datos de la transferencia pulsando el botón <code>Download transfer credentials</code>. El volumen quedará pendiente de que se complete el proceso aceptando la transferencia.</p>
+<div class="imageblock">
+<div class="content">
+<img src="./images/AwaitingTransfer.png" alt="AwaitingTransfer.png">
+</div>
+</div>
+</li>
+<li>
+<p>En el proyecto de destino de la transferencia pulsar el botón <code>Accept Transfer</code>.</p>
+</li>
+<li>
+<p>Introducir en el formulario los valores de ID de transferencia y Clave de autorización que descargamos en el archivo de credenciales de la transferencia</p>
+<div class="imageblock">
+<div class="content">
+<img src="./images/AcceptVolumeTransfer.png" alt="AcceptVolumeTransfer.png">
+</div>
+</div>
+</li>
+<li>
+<p>Pulsar el botón <code>Accept Volume Transfer</code>. El volumen aparecerá transferido en la lista de volúmenes disponibles del proyecto de destino.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="truepr-ximamente"><a class="anchor" href="#truepr-ximamente"></a>7. Próximamente</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Actualmente tenemos en fase de prueba y listos para pasar a producción los siguientes componentes de OpenStack:</p>
@@ -1141,7 +1343,7 @@ Si más adelante necesitas crear uno o más volúmenes para tu instancia, podrá
 </div>
 </div>
 <div class="sect1">
-<h2 id="truerecursos-complementarios"><a class="anchor" href="#truerecursos-complementarios"></a>7. Recursos complementarios</h2>
+<h2 id="truerecursos-complementarios"><a class="anchor" href="#truerecursos-complementarios"></a>8. Recursos complementarios</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -1158,7 +1360,7 @@ Si más adelante necesitas crear uno o más volúmenes para tu instancia, podrá
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-02-09 18:26:25 CET
+Last updated 2018-02-11 09:50:56 CET
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">
