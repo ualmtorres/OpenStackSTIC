@@ -458,8 +458,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#truetransferir-un-volumen-a-otro-proyecto">7.3. Transferir un volumen a otro proyecto</a></li>
 </ul>
 </li>
-<li><a href="#truepr-ximamente">8. Próximamente</a></li>
-<li><a href="#truerecursos-complementarios">9. Recursos complementarios</a></li>
+<li><a href="#trueaprovisionamiento-de-una-instancia-durante-la-creaci-n">8. Aprovisionamiento de una instancia durante la creación</a></li>
+<li><a href="#truepr-ximamente">9. Próximamente</a></li>
+<li><a href="#truerecursos-complementarios">10. Recursos complementarios</a></li>
 </ul>
 </div>
 </div>
@@ -1379,7 +1380,55 @@ Si más adelante necesitas crear uno o más volúmenes para tu instancia, podrá
 </div>
 </div>
 <div class="sect1">
-<h2 id="truepr-ximamente"><a class="anchor" href="#truepr-ximamente"></a>8. Próximamente</h2>
+<h2 id="trueaprovisionamiento-de-una-instancia-durante-la-creaci-n"><a class="anchor" href="#trueaprovisionamiento-de-una-instancia-durante-la-creaci-n"></a>8. Aprovisionamiento de una instancia durante la creación</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Al crear una instancia en OpenStack-DI es posible aprovisionarla (configurarla) durante su proceso de creación. De esta forma, nuestras instancias ya tendrán instalados y configurados los paquetes necesarios.</p>
+</div>
+<div class="paragraph">
+<p>La configuración de una instancia se realiza en el paso de <em>Configuration</em> del asistente. Básicamente, hay que incluir un sript <code>bash</code> en el cuadro de texto <em>Customization Script</em> tal y como muestra la figura siguiente.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./images/configuracion.png" alt="configuracion.png"></span></p>
+</div>
+<div class="paragraph">
+<p>A continuacion, se muestra el script de configuración de Docker CE en una instancia Ubuntu durante su creación.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash" data-lang="bash">#!/bin/bash
+
+echo "Instalando Docker"
+
+apt-get update
+apt-get install -y \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+apt-key fingerprint 0EBFCD88
+add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+apt-get update
+apt-get install -y docker-ce
+groupadd docker
+usermod -aG docker ubuntu
+systemctl enable docker
+
+echo "Instalando Docker Compose"
+curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+
+exit 0</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="truepr-ximamente"><a class="anchor" href="#truepr-ximamente"></a>9. Próximamente</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Actualmente tenemos en fase de prueba y listos para pasar a producción los siguientes componentes de OpenStack:</p>
@@ -1412,7 +1461,7 @@ Si más adelante necesitas crear uno o más volúmenes para tu instancia, podrá
 </div>
 </div>
 <div class="sect1">
-<h2 id="truerecursos-complementarios"><a class="anchor" href="#truerecursos-complementarios"></a>9. Recursos complementarios</h2>
+<h2 id="truerecursos-complementarios"><a class="anchor" href="#truerecursos-complementarios"></a>10. Recursos complementarios</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -1432,7 +1481,7 @@ Si más adelante necesitas crear uno o más volúmenes para tu instancia, podrá
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-02-12 00:27:34 CET
+Last updated 2018-11-29 16:26:28 CET
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">
