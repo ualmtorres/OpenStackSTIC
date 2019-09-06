@@ -8,6 +8,7 @@ Codificación, idioma, tabla de contenidos, tipo de documento
 :toc-title: Tabla de contenidos
 :doctype: book
 :imagesdir: ./images
+:linkattrs:
 
 
 ////
@@ -57,13 +58,13 @@ Actualmente, OpenStack-DI ofrece:
 
 Algunos de los servidores del Departamento de Informática, como los de control de versiones y gestión de proyectos, son realmente máquinas virtuales creadas dentro de OpenStack-DI.
 
-* Almacenamiento de archivos (http://owncloud.di.ual.es/owncloud[owncloud.di.ual.es]). Actúa como un _Dropbox_ privado.
-* Gestión de proyectos/peticiones (http://redmine.di.ual.es[redmine.di.ual.es])
-* Control de versiones Git (http://gitlabdoc.ual.es[gitlabdoc.ual.es])
-* Control de versiones Subversion (http://svndoc.ual.es[svndoc.ual.es])
-* Automatización de tareas (http://jenkins.di.ual.es[jenkins.di.ual.es])
-* Moodle (http://moodle.di.ual.es[moodle.di.ual.es])
-* Autenticación de usuarios (http://ldap.di.ual.es[ldap.di.ual.es])
+* Almacenamiento de archivos (https://owncloud.di.ual.es/owncloud[owncloud.di.ual.es,window=_blank]). Actúa como un _Dropbox_ privado.
+* Gestión de proyectos/peticiones (https://redmine.di.ual.es[redmine.di.ual.es,window=_blank])
+* Control de versiones Git (https://gitlabdoc.ual.es[gitlabdoc.ual.es,window=_blank])
+* Control de versiones Subversion (http://svndoc.ual.es:9090[svndoc.ual.es,window=_blank])
+* Automatización de tareas (http://jenkins.di.ual.es[jenkins.di.ual.es,window=_blank])
+* Moodle (https://moodle.di.ual.es[moodle.di.ual.es,window=_blank])
+* Autenticación de usuarios (https://ldap.di.ual.es[ldap.di.ual.es,window=_blank])
 
 
 == Infraestructura de OpenStack-DI
@@ -92,7 +93,7 @@ Todos los recursos de Cloud-DI, ya sean de OpenStack-DI, o servidores de apoyo a
 
 [WARNING]
 ====
-Para el acceso a los recursos de Cloud-DI desde fuera de la UAL será necesario usar una conexión VPN. Consulta http://vpn.ual.es[vpn.ual.es] para configurar tu acceso a la VPN de la UAL. 
+Para el acceso a los recursos de Cloud-DI desde fuera de la UAL será necesario usar una conexión VPN. Consulta http://vpn.ual.es[vpn.ual.es,window=_blank] para configurar tu acceso a la VPN de la UAL. 
 ====
 
 == Primeros pasos en OpenStack-DI
@@ -103,7 +104,7 @@ Para utilizar OpenStack-DI es necesario disponer de una cuenta de usuario. El ac
 
 . Solicita a mailto:clouddi@ual.es[clouddi@ual.es] tu acceso a OpenStack-DI. Te proporcionarán un dominio, un login y un password de acceso.
 
-. Introduce tus credenciales en http://openstack.di.ual.es[openstack.di.ual.es]. Una vez dentro del sistema tendrás acceso a un _proyecto_ OpenStack.
+. Introduce tus credenciales en https://openstack.di.ual.es/horizon[openstack.di.ual.es,window=_blank]. Una vez dentro del sistema tendrás acceso a un _proyecto_ OpenStack.
 
 +
 [NOTE]
@@ -127,7 +128,7 @@ image::ChangePassword.png[]
 
 Para el acceso SSH a máquinas virtuales Linux es necesario registrar la clave SSH pública en la cuenta de usuario OpenStack. Las clave pública SSH será inyectada a las instancias creadas en el proceso de inicialización. 
 
-. Inicia sesión en OpenStack-DI (http://openstack.di.ual.es[openstack.di.ual.es]).
+. Inicia sesión en OpenStack-DI (https://openstack.di.ual.es/horizon[openstack.di.ual.es,window=_blank]).
 . En el menú de la izquierda selecciona `Project | Compute | Key Pairs`
 . Si dispones de una clave SSH, pulsa el botón `Import Key Pair`. En el formulario, introduce en `Key Pair Name` el nombre que quieres asignar a tu clave pública en OpenStack y pega tu clave pública en el cuadro de texto `Public Key`.
 
@@ -143,7 +144,7 @@ En el mismo formulario de importación de claves SSH aparecen los pasos a seguir
 +
 [TIP]
 ====
-Instala https://git-scm.com/download/win[Git for Windows] en tu sistema Windows. Este software, además de instalar Git para control de versiones, instalará Git BASH en tu sistema, un emulador BASH que te será muy útil para la conexión SSH a máquinas virtuales Linux desde tu sistema Windows.
+Instala https://git-scm.com/download/win[Git for Windows,window=_blank] en tu sistema Windows. Este software, además de instalar Git para control de versiones, instalará Git BASH en tu sistema, un emulador BASH que te será muy útil para la conexión SSH a máquinas virtuales Linux desde tu sistema Windows.
 ====
 
 . Si no dispones de una clave SSH o bien no quieres o no puedes generarla, OpenStack puede crear tu par de claves. Para crear tu par de claves desde OpenStack pulsa el botón `Create Key Pair`. Introduce en el formulario el nombre que quieras a dar a tu clave SSH.
@@ -196,7 +197,7 @@ El STIC sólo tiene abiertos en la red Cloud-DI los puertos 80 (HHTP), 22 (SSH) 
 
 .Consulta la guía de uso oficial de OpenStack
 ****
-Para más información sobre la configuración del acceso y seguridad de las instancias consulta la  https://docs.openstack.org/ocata/user-guide/configure-access-and-security-for-instances.html[Guía de uso oficial de OpenStack]
+Para más información sobre la configuración del acceso y seguridad de las instancias consulta la  https://docs.openstack.org/ocata/user-guide/configure-access-and-security-for-instances.html[Guía de uso oficial de OpenStack,window=_blank]
 ****
 === Creación de una máquina virtual
 
@@ -256,7 +257,7 @@ En máquinas Windows no es necesario inyectar la clave pública.
 
 .Consulta la guía de uso oficial de OpenStack
 ****
-Para más información sobre la creación de instancias consulta la  https://docs.openstack.org/ocata/user-guide/dashboard-launch-instances.html[Guía de uso oficial de OpenStack]
+Para más información sobre la creación de instancias consulta la  https://docs.openstack.org/ocata/user-guide/dashboard-launch-instances.html[Guía de uso oficial de OpenStack,window=_blank]
 ****
 
 === Asignación de IP flotante
@@ -304,13 +305,13 @@ Una vez creada la máquina virtual y asignada una IP flotante en el caso de que 
 |====================
 | Sistema operativo | Uso                        | Cliente recomendado
 | Linux             | Terminal                   | Terminal
-|                   | Linux con Interfaz gráfica | https://wiki.x2go.org/doku.php/download:start[X2Go] 
-|                   | Máquina Windows            | https://www.remmina.org/wp/[Remmina]
+|                   | Linux con Interfaz gráfica | https://wiki.x2go.org/doku.php/download:start[X2Go,window=_blank] 
+|                   | Máquina Windows            | https://www.remmina.org/wp/[Remmina,window=_blank]
 | Mac               | Terminal                   | Terminal
-|                   | Linux con Interfaz gráfica | https://wiki.x2go.org/doku.php/download:start[X2Go]  
-|                   | Máquina Windows            | https://itunes.apple.com/us/app/microsoft-remote-desktop-10/id1295203466?mt=12[Microsoft Remote Desktop]
-| Windows           | Terminal                   | https://git-scm.com/download/win[Git BASH], Putty
-|                   | Linux Interfaz gráfica     | https://wiki.x2go.org/doku.php/download:start[X2Go]  
+|                   | Linux con Interfaz gráfica | https://wiki.x2go.org/doku.php/download:start[X2Go,window=_blank]  
+|                   | Máquina Windows            | https://itunes.apple.com/us/app/microsoft-remote-desktop-10/id1295203466?mt=12[Microsoft Remote Desktop,window=_blank]
+| Windows           | Terminal                   | https://git-scm.com/download/win[Git BASH,window=_blank], Putty
+|                   | Linux Interfaz gráfica     | https://wiki.x2go.org/doku.php/download:start[X2Go,window=_blank]  
 |                   | Máquina Windows            | Cliente de escritorio remoto
 
 |====================
@@ -341,7 +342,7 @@ OpenStack ofrece un servicio de almacenamiento de bloques, lo que nos permite po
 
 === Creación de un volumen
 
-. Inicia sesión en http://openstack.di.ual.es[OpenStack-DI].
+. Inicia sesión en https://openstack.di.ual.es/horizon[OpenStack-DI,window=_blank].
 . Selecciona el proyecto en el que crear el volumen.
 . En el menú de la izquierda selecciona `Project | Compute | Volumes`.
 . En la pestaña `Volumes` pulsa el botón `Create Volume`.
@@ -367,7 +368,7 @@ Una vez creado un volumen, éste puede ser conectado a una instancia.
 Un volumen sólo puede estar conectado a una instancia. Para conectarlo a otra instancia, el volumen tendrá que ser desconectado previamente.
 ====
 
-. Inicia sesión en http://openstack.di.ual.es[OpenStack-DI].
+. Inicia sesión en https://openstack.di.ual.es/horizon[OpenStack-DI,window=_blank].
 . Selecciona el proyecto en el que crear el volumen.
 . En el menú de la izquierda selecciona `Project | Compute | Volumes`.
 . En la pestaña `Volumes` selecciona el volumen que quieras conectar a una instancia, despliega el listbox de `Actions` y selecciona `Manage Attachments`.
@@ -387,14 +388,14 @@ A continuación sigue los pasos del sistema operativo en el que se haya conectad
 
 .Consulta la guía de uso oficial de OpenStack
 ****
-Para más información sobre la creación y administración de volúmenes consulta la  https://docs.openstack.org/ocata/user-guide/dashboard-manage-volumes.html[Guía de uso oficial de OpenStack]
+Para más información sobre la creación y administración de volúmenes consulta la  https://docs.openstack.org/ocata/user-guide/dashboard-manage-volumes.html[Guía de uso oficial de OpenStack,window=_blank]
 ****
 
 === Transferir un volumen a otro proyecto
 
 Un volumen sólo se puede utilizar en el proyecto al que pertence, pudiendo intercambiarse entre las distintas máquinas virtuales del proyecto. Sin embargo, hay situaciones en las que estamos interesados en usar un volumen en una instancia que tenemos en otro proyecto, o transferir el volumen a otro usuario de OpenStack-DI. Esta operación es la que se conoce como _Transferir un volumen_ en OpenStack.
 
-. Inicia sesión en http://openstack.di.ual.es[OpenStack-DI].
+. Inicia sesión en https://openstack.di.ual.es/horizon[OpenStack-DI,window=_blank].
 . Selecciona el proyecto en el que crear el volumen.
 . En el menú de la izquierda selecciona `Project | Compute | Volumes`.
 . En la pestaña `Volumes` selecciona el volumen que quieras transferir, despliega el listbox de `Actions` y selecciona `Create Transfer`.
@@ -480,11 +481,13 @@ Actualmente tenemos en fase de prueba y listos para pasar a producción los sigu
 
 == Recursos complementarios
 
-* http://moodle.di.ual.es[Curso online de libre acceso sobre uso básico de OpenStack-DI en moodle.di.ual.es].
+* https://www.youtube.com/playlist?list=PLoS04oY1FHPP54bnjbp7Iy31ncqhvc41X[Videotutoriales en YouTube sobre recursos y uso de OpenStack-DI,window=_blank]
 
-* https://docs.openstack.org/ocata/user-guide/dashboard.html[Guía de usuario oficial de OpenStack]
+* https://moodle.di.ual.es[Curso online de libre acceso sobre uso básico de OpenStack-DI en moodle.di.ual.es,window=_blank].
 
-* https://github.com/ualmtorres/OpenStackDI/blob/master/20180212SeminarioCloud-DI.pdf[Presentación PowerPoint Seminario Cloud-DI 12-13 febrero 2018]
+* https://docs.openstack.org/ocata/user-guide/dashboard.html[Guía de usuario oficial de OpenStack,window=_blank]
+
+* https://github.com/ualmtorres/OpenStackDI/blob/master/20180212SeminarioCloud-DI.pdf[Presentación PowerPoint Seminario Cloud-DI 12-13 febrero 2018,window=_blank]
 
 
 
