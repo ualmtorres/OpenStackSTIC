@@ -466,7 +466,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#trueextender-un-volumen-nfs">9.4. Extender un volumen NFS</a></li>
 </ul>
 </li>
-<li><a href="#truebalancedores-como-servicio-lbaas">10. Balancedores como servicio (LBaaS)</a></li>
+<li><a href="#truebalancedores-como-servicio-lbaas">10. Balancedores como servicio (LBaaS)</a>
+<ul class="sectlevel2">
+<li><a href="#truecreaci-n-del-balanceador">10.1. Creación del balanceador</a></li>
+<li><a href="#trueconfiguraci-n-de-una-ip-flotante-para-el-balanceador">10.2. Configuración de una IP flotante para el balanceador</a></li>
+<li><a href="#trueprueba-del-balanceador">10.3. Prueba del balanceador</a></li>
+</ul>
+</li>
 <li><a href="#truerecursos-complementarios">11. Recursos complementarios</a></li>
 </ul>
 </div>
@@ -1655,7 +1661,186 @@ $ sudo mount 192.168.128.17:/var/lib/manila/mnt/share-b65fa3e5-233d-4ea5-9ad2-ec
 <h2 id="truebalancedores-como-servicio-lbaas"><a class="anchor" href="#truebalancedores-como-servicio-lbaas"></a>10. Balancedores como servicio (LBaaS)</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>ToDo</p>
+<p>OpenStack-STIC ofrece un servicio muy interesante para poder crear balanceadores de carga. Los balanceadores definidos podrán distribuir las peticiones entre cada uno de los miembros del conjunto de recursos balanceados. LBaaS nos pemitirá definir varios <em>pools</em> de recursos, cada uno con sus miembros. En cada <em>pool</em> se establecerá una política o método de balanceo a elegir entre <em>least connections, round robin</em> o <em>source ip</em>.</p>
+</div>
+<div class="paragraph">
+<p>Para ilustrar su uso partimos de dos servidores Apache instalados en dos máquinas virtuales diferentes. Crearemos un balanceador con política de <em>round robin</em>.</p>
+</div>
+<div class="sect2">
+<h3 id="truecreaci-n-del-balanceador"><a class="anchor" href="#truecreaci-n-del-balanceador"></a>10.1. Creación del balanceador</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Inicia sesión en <a href="http://openstack.stic.ual.es/horizon">OpenStack-STIC</a>.</p>
+</li>
+<li>
+<p>Selecciona el proyecto en el que crear el balanceador.</p>
+</li>
+<li>
+<p>En el menú de la izquierda selecciona <code>Project | Network | Neutron Load Balancers</code>.</p>
+</li>
+<li>
+<p>Pulsa el botón <code>Create Load Balancer</code>.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/CreateLoadBalancerButton.png" alt="CreateLoadBalancerButton.png">
+</div>
+</div>
+<div class="sect3">
+<h4 id="truepaso-1-configurar-los-detalles-del-balanceador"><a class="anchor" href="#truepaso-1-configurar-los-detalles-del-balanceador"></a>10.1.1. Paso 1. Configurar los detalles del balanceador</h4>
+<div class="paragraph">
+<p>En este paso estableceremos el nombre del balanceador y la red (p.e. la red del proyecto) donde se encuentran los recursos a balancear.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/LoadBalancerDetails.png" alt="LoadBalancerDetails.png">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="truepaso-2-configurar-los-detalles-del-em-listener-em"><a class="anchor" href="#truepaso-2-configurar-los-detalles-del-em-listener-em"></a>10.1.2. Paso 2. Configurar los detalles del <em>listener</em></h4>
+<div class="paragraph">
+<p>El <em>listener</em> es el proceso que se encargar de comprobar las peticiones de acuerdo con el puerto y el protocolo que se configure.</p>
+</div>
+<div class="paragraph">
+<p>Para nuestro ejemplo configuraremos el protocolo <code>HTTP</code> y el puerto <code>80</code> y dejaremos el nombre de <em>listener</em> predeterminado.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/ListenerDetails.png" alt="ListenerDetails.png">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="truepaso-3-configurar-el-m-todo-de-balanceo-del-em-pool-em"><a class="anchor" href="#truepaso-3-configurar-el-m-todo-de-balanceo-del-em-pool-em"></a>10.1.3. Paso 3. Configurar el método de balanceo del <em>pool</em></h4>
+<div class="paragraph">
+<p>El <em>pool</em> contiene la lista de miembros que sirven contenido a través del balanceador. En este paso se define el método que se utilizará para balancear eligiendo entre <em>least connections, round robin</em> o <em>source ip</em>.</p>
+</div>
+<div class="paragraph">
+<p>Para nuestro ejemplo usaremos el método <em>round robin</em> y dejaremos el nombre de <em>pool</em> predeterminado.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/PoolDetails.png" alt="PoolDetails.png">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="truepaso-4-configurar-los-miembros-del-em-pool-em"><a class="anchor" href="#truepaso-4-configurar-los-miembros-del-em-pool-em"></a>10.1.4. Paso 4. Configurar los miembros del <em>pool</em></h4>
+<div class="paragraph">
+<p>En este paso añadiremos los miembros del <em>pool</em>, que en nuestro caso serán los dos servidores Apache. Para ello, se pulsa el botón <code>Add</code> del grupo de <code>Available Instances</code> sobre cada miembro que se quiera incorporar al <em>pool</em>. Los miembros seleccionados quedarán en el grupo <code>Allocated Members</code>.</p>
+</div>
+<div class="paragraph">
+<p>También tendremos que definir el puerto de acceso a los miembros del <em>pool</em>. En nuestro caso será el 80.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/PoolMembers.png" alt="PoolMembers.png">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="truepaso-5-configurar-le-monitor-del-em-pool-em"><a class="anchor" href="#truepaso-5-configurar-le-monitor-del-em-pool-em"></a>10.1.5. Paso 5. Configurar le monitor del <em>pool</em></h4>
+<div class="paragraph">
+<p>Puede ocurrir que algunos miembros del <em>pool</em> dejen de estar disponibles en cualquier momento. Para evitar dirigir peticiones a miembros no disponibles, se define un monitor, que comprueba periódicamente el estado de los miembros. Cuando un miembro deja de contestar se retira del <em>pool</em> hasta que no vuelva a estar disponible.</p>
+</div>
+<div class="paragraph">
+<p>En este paso configuramos el tipo de monitorización (HTTP, ping o TCP), la cadencia de la monitorización, <em>timeout</em> y el número de intentos antes de descartar del pool a un miembro.</p>
+</div>
+<div class="paragraph">
+<p>En nuestro ejemplo, elegiremos HTTP, lo que nos permitirá configurar otros parámetros específicos. como el método HTTP usado para la monitorización (p.e. <code>GET</code>), el código HTTP devuelto (p.e. 200) y el path pra la prueba (<code>/</code>).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/MonitorDetails.png" alt="MonitorDetails.png">
+</div>
+</div>
+<div class="paragraph">
+<p>Por último, pulsaremos el botón <code>Create Load Balancer</code> del asistente para proceder a crear el balanceador. En Horizon aparecerán los datos del balanceador creado. Si recargamos la página también veremos el <em>listener</em> creado.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/BalanceadorCreado.png" alt="BalanceadorCreado.png">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueconfiguraci-n-de-una-ip-flotante-para-el-balanceador"><a class="anchor" href="#trueconfiguraci-n-de-una-ip-flotante-para-el-balanceador"></a>10.2. Configuración de una IP flotante para el balanceador</h3>
+<div class="paragraph">
+<p>Definiremos una dirección IP flotante al balanceador, que actuará como la dirección IP de acceso a los recursos balanceados. En nuestro caso, será la IP de acceso a los dos servidores Apache.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/LoadBalancerFloatingIP.png" alt="LoadBalancerFloatingIP.png">
+</div>
+</div>
+<div class="paragraph">
+<p>En el cuadro de diálogo indicaremos de dónde obtener la IP flotante, que normalmente será de la red externa.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/LoadBalancerRequestFloatingIP.png" alt="LoadBalancerRequestFloatingIP.png">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Si hubiese direcciones IP flotantes libres en el proyecto, también apaecerían en desplegable de direcciones IP floatantes para el balanceador.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>La dirección IP flotante asignada la podemos ver al hacer clic sobre el balanceador.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/LoadBalancerConFloatingIP.png" alt="LoadBalancerConFloatingIP.png">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueprueba-del-balanceador"><a class="anchor" href="#trueprueba-del-balanceador"></a>10.3. Prueba del balanceador</h3>
+<div class="paragraph">
+<p>Para probar el balanceador, cambiaremos las páginas de inicio de los dos servidores Apache de forma que podamos comprobar que se está haciendo correctamente el balanceo entre los miembros del <em>pool</em>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>En Ubuntu, la página de inicio de Apache2 está en <code>/var/www/html/index.php</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>A continuación, al ir accediendo a la dirección IP del balanceador comprobaremos que de forma alternativa irá balanceando sobre los dos servidores Apache de acuerdo con la política de balanceo definida.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/ServidorApache1.png" alt="ServidorApache1.png">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/ServidorApache2.png" alt="ServidorApache2.png">
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1677,7 +1862,7 @@ $ sudo mount 192.168.128.17:/var/lib/manila/mnt/share-b65fa3e5-233d-4ea5-9ad2-ec
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-03-29 18:47:06 CEST
+Last updated 2020-04-05 12:57:27 CEST
 </div>
 </div>
 </body>

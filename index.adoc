@@ -557,7 +557,98 @@ image::VolumenNFSExtendido.png[]
 
 == Balancedores como servicio (LBaaS)
 
-ToDo
+OpenStack-STIC ofrece un servicio muy interesante para poder crear balanceadores de carga. Los balanceadores definidos podrán distribuir las peticiones entre cada uno de los miembros del conjunto de recursos balanceados. LBaaS nos pemitirá definir varios _pools_ de recursos, cada uno con sus miembros. En cada _pool_ se establecerá una política o método de balanceo a elegir entre _least connections, round robin_ o _source ip_.
+
+Para ilustrar su uso partimos de dos servidores Apache instalados en dos máquinas virtuales diferentes. Crearemos un balanceador con política de _round robin_.
+
+=== Creación del balanceador
+
+1. Inicia sesión en http://openstack.stic.ual.es/horizon[OpenStack-STIC].
+
+1. Selecciona el proyecto en el que crear el balanceador.
+
+1. En el menú de la izquierda selecciona `Project | Network | Neutron Load Balancers`.
+
+1. Pulsa el botón `Create Load Balancer`.
+
+image::CreateLoadBalancerButton.png[]
+
+==== Paso 1. Configurar los detalles del balanceador
+
+En este paso estableceremos el nombre del balanceador y la red (p.e. la red del proyecto) donde se encuentran los recursos a balancear.
+
+image::LoadBalancerDetails.png[]
+
+==== Paso 2. Configurar los detalles del _listener_
+
+El _listener_ es el proceso que se encargar de comprobar las peticiones de acuerdo con el puerto y el protocolo que se configure.
+
+Para nuestro ejemplo configuraremos el protocolo `HTTP` y el puerto `80` y dejaremos el nombre de _listener_ predeterminado.
+
+image::ListenerDetails.png[]
+
+==== Paso 3. Configurar el método de balanceo del _pool_
+
+El _pool_ contiene la lista de miembros que sirven contenido a través del balanceador. En este paso se define el método que se utilizará para balancear eligiendo entre _least connections, round robin_ o _source ip_.
+
+Para nuestro ejemplo usaremos el método _round robin_ y dejaremos el nombre de _pool_ predeterminado.
+
+image::PoolDetails.png[]
+
+==== Paso 4. Configurar los miembros del _pool_
+
+En este paso añadiremos los miembros del _pool_, que en nuestro caso serán los dos servidores Apache. Para ello, se pulsa el botón `Add` del grupo de `Available Instances` sobre cada miembro que se quiera incorporar al _pool_. Los miembros seleccionados quedarán en el grupo `Allocated Members`. 
+
+También tendremos que definir el puerto de acceso a los miembros del _pool_. En nuestro caso será el 80.
+
+image::PoolMembers.png[]
+
+==== Paso 5. Configurar le monitor del _pool_
+
+Puede ocurrir que algunos miembros del _pool_ dejen de estar disponibles en cualquier momento. Para evitar dirigir peticiones a miembros no disponibles, se define un monitor, que comprueba periódicamente el estado de los miembros. Cuando un miembro deja de contestar se retira del _pool_ hasta que no vuelva a estar disponible.
+
+En este paso configuramos el tipo de monitorización (HTTP, ping o TCP), la cadencia de la monitorización, _timeout_ y el número de intentos antes de descartar del pool a un miembro.
+
+En nuestro ejemplo, elegiremos HTTP, lo que nos permitirá configurar otros parámetros específicos. como el método HTTP usado para la monitorización (p.e. `GET`), el código HTTP devuelto (p.e. 200) y el path pra la prueba (`/`).
+
+image::MonitorDetails.png[]
+
+Por último, pulsaremos el botón `Create Load Balancer` del asistente para proceder a crear el balanceador. En Horizon aparecerán los datos del balanceador creado. Si recargamos la página también veremos el _listener_ creado.
+
+image::BalanceadorCreado.png[]
+
+=== Configuración de una IP flotante para el balanceador
+
+Definiremos una dirección IP flotante al balanceador, que actuará como la dirección IP de acceso a los recursos balanceados. En nuestro caso, será la IP de acceso a los dos servidores Apache.
+
+image::LoadBalancerFloatingIP.png[]
+
+En el cuadro de diálogo indicaremos de dónde obtener la IP flotante, que normalmente será de la red externa.
+
+image::LoadBalancerRequestFloatingIP.png[]
+
+[NOTE]
+====
+Si hubiese direcciones IP flotantes libres en el proyecto, también apaecerían en desplegable de direcciones IP floatantes para el balanceador.
+====
+
+La dirección IP flotante asignada la podemos ver al hacer clic sobre el balanceador.
+
+image::LoadBalancerConFloatingIP.png[]
+
+=== Prueba del balanceador
+
+Para probar el balanceador, cambiaremos las páginas de inicio de los dos servidores Apache de forma que podamos comprobar que se está haciendo correctamente el balanceo entre los miembros del _pool_.
+
+[NOTE]
+====
+En Ubuntu, la página de inicio de Apache2 está en `/var/www/html/index.php`.
+====
+
+A continuación, al ir accediendo a la dirección IP del balanceador comprobaremos que de forma alternativa irá balanceando sobre los dos servidores Apache de acuerdo con la política de balanceo definida.
+
+image::ServidorApache1.png[]
+image::ServidorApache2.png[]
 
 == Recursos complementarios
 
