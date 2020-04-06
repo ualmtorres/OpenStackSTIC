@@ -27,9 +27,9 @@ image:logocloudstic.png[]
 [abstract]
 == Resumen
 
-OpenStack-STIC es el servicio de Infraestructura como servicio (IaaS) del Servicio de las Tecnologías de la Información y las Comunicaciones de la Universidad de Almería. Actualmente ofrece servicios de máquinas virtuales, almacenamiento como servicio (almacenamiento de bloques y volúmenes NFS) y balanceadores como servicio.
+OpenStack-STIC es la plataforma de Infraestructura como servicio (IaaS) del Servicio de las Tecnologías de la Información y las Comunicaciones de la Universidad de Almería. Actualmente ofrece servicios de máquinas virtuales, almacenamiento como servicio (almacenamiento de bloques y volúmenes NFS) y balanceadores como servicio.
 
-OpenStack-STIC además, es el soporte para el resto de servicios _cloud_ del STIC (Cloud-STIC), como el registro de imágenes Docker y Kubernetes.
+Además, OpenStack-STIC es el soporte para el resto de servicios _cloud_ del STIC (Cloud-STIC), como el registro de imágenes Docker y Kubernetes.
 
 ////
 ***************************************************
@@ -54,7 +54,7 @@ OpenStack-STIC es el proyecto de Cloud-STIC que ofrece Infraestructura como serv
 Actualmente, OpenStack-STIC ofrece:
 
 * Servicios para la creación de Máquinas y Aulas virtuales.
-* Servicios de Almacenamiento tanto de bloques como volúmenes NFS.
+* Servicios de Almacenamiento, tanto de bloques como volúmenes NFS.
 * Balanceadores como servicio.
 
 [NOTE]
@@ -78,11 +78,11 @@ Algunos de los servidores del STIC, como los de registro de imágenes Docker y c
 
 [IMPORTANT]
 ====
-Todos los servicios de OpenStack-STIC y de Cloud-STIC son servicios en red privada.
+Todos los servicios de OpenStack-STIC y de Cloud-STIC son servicios en red privada accesibles únicamente desde la UAL o por https://vpn.ual.es[VPN] con perfil STIC.
 ====
 
-* https://harbor.stic.ual.es[Registro de imágenes Docker red privada,window=_blank]
-* https://rancher.stic.ual.es[Kubernetes red privada,window=_blank]
+* https://harbor.stic.ual.es[Registro de imágenes Docker,window=_blank]
+* https://rancher.stic.ual.es[Kubernetes,window=_blank]
 * https://home.stic.ual.es[Portal de acceso a Cloud-STIC,window=_blank]
 * https://portal.stic.ual.es[Portal de documentación, proyectos y recursos de formación,window=_blank]
 * https://privatebin.stic.ual.es[PrivateBin,window=_blank]
@@ -94,17 +94,15 @@ Todos los servicios de OpenStack-STIC y de Cloud-STIC son servicios en red priva
 
 == Infraestructura de OpenStack-STIC
 
-=== Plataforma de producción en Alta disponibilidad
+OpenStack-STIC cuenta con la siguiente configuración de servidores, ofreciendo alta disponibilidad en los servicios de control y red.
 
+* Servidores de control: 3
+* Servidores de red: 2
 * Servidores de cómputo: 24
 * RAM disponible: 4.608 GB
 * VCPUs: 576
 * Espacio disponible para instancias: 103,2 TB
 * Almacenamiento disponible para volúmenes: 10,4 TB
-
-== Acceso a OpenStack-STIC
-
-Todos los recursos de OpenStack-STIC, sólo son accesibles desde la red de la UAL. Para el acceso a los recursos de Cloud-STIC desde fuera de la UAL será necesario usar una conexión VPN con el perfil STIC. Consulta http://vpn.ual.es[vpn.ual.es,window=_blank] para configurar tu acceso a la VPN de la UAL. 
 
 == Primeros pasos en OpenStack-STIC
 
@@ -112,9 +110,9 @@ Para utilizar OpenStack-STIC es necesario disponer de una cuenta de usuario. El 
 
 === Solicitud de cuenta de usuario
 
-. Solicita mediante https://caustic.ual.es[CAU] tu acceso a OpenStack-STIC. Te proporcionarán un dominio, un login y un password de acceso.
+. Solicita mediante https://caustic.ual.es[CAU] el acceso a OpenStack-STIC. Te proporcionarán un dominio, un login y un password de acceso.
 
-. Introduce tus credenciales en https://openstack.stic.ual.es/horizon[OpenStack-STIC,window=_blank]. Una vez dentro del sistema tendrás acceso a un _proyecto_ OpenStack.
+. Introduce tus credenciales en https://openstack.stic.ual.es/horizon[OpenStack-STIC,window=_blank]. Una vez dentro del sistema tendrás acceso a un *proyecto* OpenStack.
 
 +
 [NOTE]
@@ -136,11 +134,11 @@ image::ChangePassword.png[]
 
 === Generación de claves SSH
 
-Las claves SSH ofrecen una forma más segura de conexión remota ya que evitan la introducción de usuario y contraseña en los inicios de sesión, reduciendo el riesgo de ataques de fuerza bruta para descubrimiento de contraseñas. Además, suponen una opción más cómoda de inicio de sesión ya que evitan el recordar las contraseñas en cada conexión.
+Las claves SSH ofrecen una forma más segura de conexión remota ya que evitan la introducción de usuario y contraseña en los inicios de sesión, reduciendo el riesgo de ataques de fuerza bruta para descubrimiento de contraseñas. Además, suponen una opción más cómoda de inicio de sesión, ya que evitan el recordar las contraseñas en cada conexión.
 
 Las claves SSH se generan en pares, dando lugar a la clave privada y a la clave pública. La clave privada ha de ser protegida y no debe ser compartida con nadie. La clave pública puede ser compartida libremente y se insertará en las instancias en el momento de su creación.
 
-Para generar un par de claves SSH en una terminal Linux o Mac ejecuta el comando
+Para generar un par de claves SSH, ejecuta el comando siguiente en una terminal Linux o Mac. Para usuarios Windows se recomienda usar https://gitforwindows.org/[Git for Windows], disponible al instalar Git.
 
 `ssh-keygen`
 
@@ -153,7 +151,7 @@ También se pedirá la introducción de una contraseña para el uso del par de c
 
 === Registra tus claves SSH
 
-Para el acceso SSH a máquinas virtuales Linux creadas en OpenStack-STIC es necesario tener registrada una clave SSH pública en la cuenta de usuario de OpenStack-STIC. Las clave pública SSH será inyectada a las instancias creadas en el proceso de inicialización. Una vez creada la instancia, se accederá a ella mediante la clave privada SSH correspondiente almacenada en el cliente.
+Para el acceso SSH a máquinas virtuales Linux creadas en OpenStack-STIC es necesario tener registrada una clave SSH pública en la cuenta de usuario de OpenStack-STIC. La clave pública SSH será inyectada a las instancias creadas en el proceso de inicialización. Una vez creada la instancia, se accederá a ella mediante la clave privada SSH correspondiente almacenada en el cliente.
 
 . Inicia sesión en https://openstack.stic.ual.es/horizon[OpenStack-STIC,window=_blank].
 . En el menú de la izquierda selecciona `Project | Compute | Key Pairs`
@@ -354,7 +352,7 @@ Una vez creada la máquina virtual y asignada una IP flotante en el caso de que 
 
 |====================
 
-== Imágenes disponibles en OpenStack-STIC
+== Imágenes y Snapshots en OpenStack-STIC
 
 Actualmente están disponibles las imágenes siguientes en OpenStack-STIC:
 
@@ -375,6 +373,58 @@ Actualmente están disponibles las imágenes siguientes en OpenStack-STIC:
 ====
 Contacta vía https://caustic.ual.es[CAU] para obtener la contraseña para instancias en las que el modo de acceso no sea con Key Pair.
 ====
+
+=== Subir una imagen
+
+Normalmente la subida de imágenes es una tarea que se debe dejar a los administradores de OpenStack-STIC. No obstante, si se trata de imágenes sin interés para uso general, se pueden seguir estos pasos para tener una imagen disponible en el proyecto personal.
+
+Las imágenes se subirán en formato QCOW2 y OpenStack matiene una https://docs.openstack.org/image-guide/obtain-images.html[página con enlaces a descargas de imágenes] configuradas para ejecutarse en modo cloud (con el paquete `cloud-init`, soporte para el acceso mediante claves SSH e inyección de datos de usuario.
+
+
+. Inicia sesión en https://openstack.stic.ual.es/horizon[OpenStack-STIC,window=_blank].
+. Selecciona el proyecto en el que crear la imagen.
+. En el menú de la izquierda selecciona `Project | Compute | Images`.
+. Pulsa el botón `Create Image`.
+. En el formulario completa los datos siguientes:
+** Nombre de la imagen (p.e. `openSsure Leap 15.1`).
+** `Image Source: Introduce el archivo con la imagen descargada.
+** `Format`: Seleccionar `QCOW2`.
+** `Protected`: Indica si las configuraciones establecidas en `Rawdisk, Minimum Disk, Minimum RAM` pueden ser modificadas por otros usarios a los que le diéramos permiso de uso sobres esta imagen en el caso de hacerla pública.
+. Tras pulsar `Create Image` se procederá a la subida y creación de la imagen.
+
+image::openSuse.png[]
+
+La imagen aparecerá tras unos instantes en la lista de imágenes disponibles.
+
+=== Proteger/Desproteger una imagen
+
+En una imagen se puede proteger la configuración de parámetros como RAM y disco mínimo para poder crear instancias a partir de ella. Una imagen protegida impedirá que otros usuarios puedan modificar estos valores.
+
+. Inicia sesión en https://openstack.stic.ual.es/horizon[OpenStack-STIC,window=_blank].
+. Selecciona el proyecto en el que proteger la imagen.
+. En el menú de la izquierda selecciona `Project | Compute | Images`.
+. Selecciona la imagen a proteger, despliega el listbox de `Actions` y selecciona `Edit Image`.
+. Pulsa en los botones `Yes | No` de `Protected` en `Image Sharing`.
+. Aplica los cambios pulsando el botón `Update Image`.
+
+=== Crear snapshot de una instancia
+
+Un snapshot es una imagen creada a partir del estado del disco de una instancia a modo de fotografía de una instancia. El snapshot creado puede ser usado posteriormente para crear nuevas instancias, lo que lo hace una buena opción para la distribución de instancias con software preinstalado y configuraciones aplicadas.
+
+. Inicia sesión en https://openstack.stic.ual.es/horizon[OpenStack-STIC,window=_blank].
+. Selecciona el proyecto en el que crear el snapshot.
+. En el menú de la izquierda selecciona `Project | Compute | Instances`.
+. Selecciona la instancia a la que crear el snapshot y selecciona `Create Snapshot` en el listbox de `Actions` de la instancia.
+
+Tras unos instantes, el snapshot estará creado y listo para ser replicado.
+
+[NOTE]
+====
+Los snapshots no son etiquetados como imágenes, sino como _snapshot images_ Es importante tener esto en cuenta porque a la hora de crear una instanncia a a partir de ellos, habrá que seleccionar _snapshot images_ como origen de la instancia en el Asistente para la creación de instancias.
+
+No obstante, esto se puede modificar cambiando los metadatos del snapshot, cambiando los valores de las propiedades `image_location` e `image_type` de `snapshot` por `image`.
+====
+
 == Uso de volúmenes en OpenStack-STIC
 
 OpenStack-STIC ofrece un servicio de almacenamiento de bloques, lo que nos permite poder crear volúmenes y conectarlos a máquinas virtuales. Los volúmenes nos dan almacenamiento persistente, entendido como que el volumen se conserva a pesar de que se elimine la máquina virtual a la que está conectado.
@@ -990,6 +1040,17 @@ image::ConfirmMigration.png[]
 
 1. Pulsar el botón `Confirm Resize/Migrate`.
 1. Una vez migrada la instancia a otro servidor, iniciar la instancia pulsando el bótón `Hard Reboot Instance`. La opción `Start Instance` de instancias de otros proyectos no está disponible para el usuario `admin`.
+
+=== Convertir una imagen en pública
+
+Las imágenes subidas por los usuarios son privadas y sólo son visibles en el proyecto en el que se han creado. Para convetirlas en públicas y que puedan ser usadas por otros usuarios, seguir estos pasos.
+
+. Inicia sesión en https://openstack.stic.ual.es/horizon[OpenStack-STIC,window=_blank].
+. Comprobar que se está en el proyecto `admin`.
+. En el menú de la izquierda selecciona `Admin | Compute | Images`.
+. Selecciona la imagen a modificar, despliega el listbox de `Actions` y selecciona `Edit Image`.
+. Pulsa los botones `Public | Private` de `Visibility` en `Image Sharing`.
+. Aplica los cambios pulsando el botón `Update Image`.
 
 === Administración de proyectos
 
