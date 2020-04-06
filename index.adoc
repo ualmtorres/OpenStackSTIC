@@ -501,6 +501,14 @@ image::AcceptVolumeTransfer.png[]
 
 . Pulsar el botón `Accept Volume Transfer`. El volumen aparecerá transferido en la lista de volúmenes disponibles del proyecto de destino.
 
+=== Eliminar volumen
+
+. Inicia sesión en https://openstack.stic.ual.es/horizon[OpenStack-STIC,window=_blank].
+. Selecciona el proyecto en el que está el volumen.
+. En el menú de la izquierda selecciona `Project | Volumes`.
+. En la pestaña `Volumes` selecciona el volumen a eliminar, despliega el listbox de `Actions` y selecciona `Delete Volume`.
+. Confirma la eliminación en el cuadro de diálogo.
+
 == Aprovisionamiento de una instancia durante la creación
 
 Al crear una instancia en OpenStack-STIC es posible aprovisionarla (configurarla) durante su proceso de creación. De esta forma, nuestras instancias ya tendrán instalados y configurados los paquetes necesarios. 
