@@ -55,14 +55,42 @@ Actualmente, OpenStack-STIC ofrece:
 
 * Servicios para la creación de Máquinas y Aulas virtuales.
 * Servicios de Almacenamiento tanto de bloques como volúmenes NFS.
+* Balanceadores como servicio.
+
+[NOTE]
+====
+OpenStack-STIC es https://www.openstack.org/software/stein/[OpenStack Stein] e incluye los componentes:
+
+* Keystone: Identificación
+* Glance: Imágenes
+* Nova: Cómputo
+* Placement: Reserva y gestión de recursos
+* Neutron: Networking
+* Neutron Load Balancer: Balanceadores
+* Horizon: Interfaz web
+* Cinder: Almacenamiento de bloques
+* Manila: Almacenamiento compartido
+====
 
 == Servicios que ofrece Cloud-STIC
 
 Algunos de los servidores del STIC, como los de registro de imágenes Docker y clusters de Kubernetes, son realmente máquinas virtuales creadas dentro de OpenStack-STIC.
 
-* https://192.168.66.52[Registro de imágenes Docker,window=_blank]
-* https://192.168.66.52[Kubernetes,window=_blank]
-* ...
+[IMPORTANT]
+====
+Todos los servicios de OpenStack-STIC y de Cloud-STIC son servicios en red privada.
+====
+
+* https://harbor.stic.ual.es[Registro de imágenes Docker red privada,window=_blank]
+* https://rancher.stic.ual.es[Kubernetes red privada,window=_blank]
+* https://home.stic.ual.es[Portal de acceso a Cloud-STIC,window=_blank]
+* https://portal.stic.ual.es[Portal de documentación, proyectos y recursos de formación,window=_blank]
+* https://privatebin.stic.ual.es[PrivateBin,window=_blank]
+* https://minio.stic.ual.es[Minio Object Server (en curso),window=_blank]
+* https://monitor.stic.ual.es[Monitorización de servicios (en curso),window=_blank]
+* https://kibana.stic.ual.es[Kibana log server (en curso),window=_blank]
+* https://nextcloud.stic.ual.es[Nextcloud Document server (en curso),window=_blank]
+* https://jitsi.stic.ual.es[Jitsi Video conferencing (en curso),window=_blank]
 
 == Infraestructura de OpenStack-STIC
 
@@ -84,7 +112,7 @@ Para utilizar OpenStack-STIC es necesario disponer de una cuenta de usuario. El 
 
 === Solicitud de cuenta de usuario
 
-. Solicita a mailto:xxxxx@ual.es[xxxxx@ual.es] tu acceso a OpenStack-STIC. Te proporcionarán un dominio, un login y un password de acceso.
+. Solicita mediante https://caustic.ual.es[CAU] tu acceso a OpenStack-STIC. Te proporcionarán un dominio, un login y un password de acceso.
 
 . Introduce tus credenciales en https://openstack.stic.ual.es/horizon[OpenStack-STIC,window=_blank]. Una vez dentro del sistema tendrás acceso a un _proyecto_ OpenStack.
 
@@ -105,6 +133,23 @@ image::Settings.png[]
 Se desplegará un menú en la izquierda. A continuación, selecciona `Change password`.
 
 image::ChangePassword.png[]
+
+=== Generación de claves SSH
+
+Las claves SSH ofrecen una forma más segura de conexión remota ya que evitan la introducción de usuario y contraseña en los inicios de sesión, reduciendo el riesgo de ataques de fuerza bruta para descubrimiento de contraseñas. Además, suponen una opción más cómoda de inicio de sesión ya que evitan el recordar las contraseñas en cada conexión.
+
+Las claves SSH se generan en pares, dando lugar a la clave privada y a la clave pública. La clave privada ha de ser protegida y no debe ser compartida con nadie. La clave pública puede ser compartida libremente y se insertará en las instancias en el momento de su creación.
+
+Para generar un par de claves SSH en una terminal Linux o Mac ejecuta el comando
+
+`ssh-keygen`
+
+Si no indicamos otro nombre, esto genera dos archivos con los nombres `id_rsa` e `id_rsa.pub` que se almacenarán en la carpeta `home` del usuario en la rutas:
+
+* Clave privada: `/home/user/.ssh/id_rsa`
+* Clave pública: `/home/user/.ssh/id_rsa.pub`
+
+También se pedirá la introducción de una contraseña para el uso del par de claves. Por ahora, lo dejaremos sin contraseña.
 
 === Registra tus claves SSH
 
@@ -240,6 +285,19 @@ Pulsar el botón `Launch Instance` para proceder a la creación de la instancia.
 Para más información sobre la creación de instancias consulta la  https://docs.openstack.org/ocata/user-guide/dashboard-launch-instances.html[Guía de uso oficial de OpenStack,window=_blank]
 ****
 
+=== Iniciar, reiniciar y apagar una máquina virtual
+
+Puedes iniciar, reiniciar y apagar una máquina virtual desplegando las acciones que aparecen a su lado en el listado de instancias del proyecto `Project | Compute | Instances`.
+
+* Iniciar instancia: `Start Instance`
+* Apagar instancia: `Shutoff Instance`
+* Reiniciar instancia: `Soft Reboot Instance` o `Hard Reboot Instance`
+
+[IMPORTANT]
+====
+No confundir `Shutoff Instance` con `Delete Instance`. `Shutoff instance` apaga la instancia. En cambio, `Delete Instance` la elimina y lo perderemos todo.
+====
+
 === Asignación de IP flotante
 
 Las instancias creadas son conectadas a una de las redes privadas de un proyecto OpensStack-STIC. Inicialmente, es posible la comunicación entre las instancias de dicha red. Pero de forma predeterminada, no es posible la conexión a la instancia creada desde nuestro equipo de trabajo, o en general, desde otro equipo que esté fuera de la red del proyecto en el que se ha creado la máquina virtual.
@@ -308,12 +366,14 @@ Actualmente están disponibles las imágenes siguientes en OpenStack-STIC:
 | Ubuntu 16.04 LTS | ubuntu | Key Pair 
 | Ubuntu 18.04 LTS | ubuntu | Key Pair 
 | CentOS 6 | centos | Key Pair  
+| CentOS 7 | centos | Key Pair  
 | cirros | cirros | Key Pair 
+| Windows 10 | usuario | credenciales 
 |====================
 
 [NOTE]
 ====
-Contacta con mailto:xxxxx@ual.es[xxxxx@ual.es] para obtener la contraseña para instancias en las que el modo de acceso no sea con Key Pair.
+Contacta vía https://caustic.ual.es[CAU] para obtener la contraseña para instancias en las que el modo de acceso no sea con Key Pair.
 ====
 == Uso de volúmenes en OpenStack-STIC
 
@@ -384,6 +444,23 @@ A continuación aparecerá un cuadro de diálogo de confirmación. Pulsar el bot
 
 image::DetachVolumeConfirm.png[]
 
+=== Extender un volumen
+
+. Inicia sesión en https://openstack.stic.ual.es/horizon[OpenStack-STIC,window=_blank].
+. Selecciona el proyecto en el que está el volumen a desconectar.
+. En el menú de la izquierda selecciona `Project | Volumes`.
+
++
+[IMPORTANT]
+====
+Desconecta el volumen antes de ampliarlo.
+====
+
+. En la pestaña `Volumes` selecciona el volumen que quieras extender, despliega el listbox de `Actions` y selecciona `Extend Volume`.
+. Configura el nuevo tamaño del volumen en el formulario.
+
+image::ExtendVolume.png[]
+
 === Transferir un volumen a otro proyecto
 
 Un volumen sólo se puede utilizar en el proyecto al que pertence, pudiendo intercambiarse entre las distintas máquinas virtuales del proyecto. Sin embargo, hay situaciones en las que estamos interesados en usar un volumen en una instancia que tenemos en otro proyecto, o transferir el volumen a otro usuario de OpenStack-STIC. Esta operación es la que se conoce como _Transferir un volumen_ en OpenStack.
@@ -428,7 +505,7 @@ image::AcceptVolumeTransfer.png[]
 
 Al crear una instancia en OpenStack-STIC es posible aprovisionarla (configurarla) durante su proceso de creación. De esta forma, nuestras instancias ya tendrán instalados y configurados los paquetes necesarios. 
 
-La configuración de una instancia se realiza en el paso de _Configuration_ del asistente. Básicamente, hay que incluir un script `bash` en el cuadro de texto _Customization Script_ tal y como muestra la figura siguiente.
+La configuración de una instancia se realiza en el paso de `Configuration` del asistente. Básicamente, hay que incluir un script `bash` en el cuadro de texto `Customization Script` tal y como muestra la figura siguiente.
 
 image:configuracion.png[]
 
@@ -436,6 +513,18 @@ A continuacion, se muestra el script de configuración de Docker CE en una insta
 
 ++++
 <script src="https://gist.github.com/ualmtorres/dec19ebed2981459f8e5677979eb04c3.js"></script>
+++++
+
+=== Creación de una instancia con acceso mediante login y password
+
+Durante lo creación de una instancia introduce el código siguiente en el cuadro de texto `Customization Script` del paso `Configuration` del asistente de creación de instancias. 
+
+image::InstanceConfiguration.png[]
+
+Recuerda cambiar la contraseña de la línea 2.
+
+++++
+<script src="https://gist.github.com/ualmtorres/c3e7123d3e414e9e54ad4d3ee1051429.js"></script>
 ++++
 
 == Almacenamiento compartido de archivos (NFS)
@@ -555,13 +644,22 @@ Se puede comprobar que, tras extender el volumen, el espacio aparece disponible 
 
 image::VolumenNFSExtendido.png[]
 
-== Balancedores como servicio (LBaaS)
+=== Eliminar un volumen NFS
+
+. Inicia sesión en https://openstack.stic.ual.es/horizon[OpenStack-STIC,window=_blank].
+. Selecciona el proyecto en el que está creado el volumen NFS.
+. En el menú de la izquierda selecciona `Project | Share`.
+. Asegúrate que no hay instancias que estén usando el volumen NFS a eliminar.
+. En el submenú `Shares` despliega el menú `Actions` del volumen NFS que quieras eliminar y selecciona `Delete Share`.
+. Confirma su eliminación en el cuadro de diálogo.
+
+== Balanceadores como servicio (LBaaS)
 
 OpenStack-STIC ofrece un servicio muy interesante para poder crear balanceadores de carga. Los balanceadores definidos podrán distribuir las peticiones entre cada uno de los miembros del conjunto de recursos balanceados. LBaaS nos pemitirá definir varios _pools_ de recursos, cada uno con sus miembros. En cada _pool_ se establecerá una política o método de balanceo a elegir entre _least connections, round robin_ o _source ip_.
 
 Para ilustrar su uso partimos de dos servidores Apache instalados en dos máquinas virtuales diferentes. Crearemos un balanceador con política de _round robin_.
 
-=== Creación del balanceador
+=== Creación de un balanceador
 
 1. Inicia sesión en http://openstack.stic.ual.es/horizon[OpenStack-STIC].
 
@@ -603,7 +701,7 @@ También tendremos que definir el puerto de acceso a los miembros del _pool_. En
 
 image::PoolMembers.png[]
 
-==== Paso 5. Configurar le monitor del _pool_
+==== Paso 5. Configurar el monitor del _pool_
 
 Puede ocurrir que algunos miembros del _pool_ dejen de estar disponibles en cualquier momento. Para evitar dirigir peticiones a miembros no disponibles, se define un monitor, que comprueba periódicamente el estado de los miembros. Cuando un miembro deja de contestar se retira del _pool_ hasta que no vuelva a estar disponible.
 
@@ -617,7 +715,7 @@ Por último, pulsaremos el botón `Create Load Balancer` del asistente para proc
 
 image::BalanceadorCreado.png[]
 
-=== Configuración de una IP flotante para el balanceador
+=== Configuración de una IP flotante para un balanceador
 
 Definiremos una dirección IP flotante al balanceador, que actuará como la dirección IP de acceso a los recursos balanceados. En nuestro caso, será la IP de acceso a los dos servidores Apache.
 
@@ -649,6 +747,298 @@ A continuación, al ir accediendo a la dirección IP del balanceador comprobarem
 
 image::ServidorApache1.png[]
 image::ServidorApache2.png[]
+
+=== Modificar el _pool_
+
+Se pueden añadir o retirar miembros del _pool_ de un balanceador. Tendremos que seguir estos pasos:
+
+1. Hacer clic sobre el balanceador en la lista de balanceadores disponibles.
+1. Hacer clic sobre el _listener_ en la lista de listeners del balanceador.
+1. Hacer clic en `Default Pool ID`.
+1. Pulsar el botón `Add/Remove Pool Members` para añadir o eliminar los miembros del _pool_.
+
+image::AddRemovePoolMembers.png[]
+
+=== Eliminación de un balanceador
+
+Un balanceador tiene una serie de objetos anidados en su interior (_listener, pool_ y _health monitor_). Para eliminar el balanceador habrá que eliminar dichos objetos desde dentro hacia afuera.
+
+Para ello, seguiremos estos pasos:
+
+1. Hacer clic sobre el balanceador en la lista de balanceadores disponibles.
+1. Hacer clic sobre el _listener_ en la lista de listeners del balanceador.
+1. Hacer clic en `Default Pool ID`.
+1. Haz clic en el `Health Monitor ID`.
+1. Despliega el menú del monitor y selecciona `Delete Health Monitor` y confirma los cambios.
+
++
+image::DeleteHealthMonitor.png[]
+
+1. Despliega el menú del _pool_, selecciona `Delete Pool` y confirma los cambios.
+1. Despliega el menú del _listener_, selecciona `Delete Listener` y confirma los cambios.
+1. Despliega el menú del balanceador, selecciona `Delete Load Balancer` y confirma los cambios.
+
+== Networking
+
+Normalmente, en OpenStack-STIC los administradores facilitan los proyectos con la infraestructura básica de red creada. Esta infraestructura básica consiste en una red para el proyecto a la que se conectarán las instancias creadas. Dicha red de proyecto se conectará a la red la UAL mediante un router virtual, que también se proporcionará configurado.
+
+=== Configuración de la infraestructura básica de red de un proyecto
+
+En OpenStack, la infraestructura básica de red para un proyecto consta de:
+
+* Red de proyecto
+* Router de proyecto conectado a red externa y a red de proyecto.
+
+Hay que seguir los pasos siguientes para realizar dicha configuración:
+
+. <<Crear red de proyecto>>
+. <<Crear router de proyecto>>
+. <<Añadir interfaz al router>>
+
+=== Crear red de proyecto
+
+. Inicia sesión en https://openstack.stic.ual.es/horizon[OpenStack-STIC,window=_blank].
+. En el menú de la izquierda selecciona `Project | Network | Networks`.
+. Pulsa el botón `Create Network`
+. En la ficha `Network` del asistente completa el nombre de la red siguiendo la plantilla nombre del proyecto seguido de `-net`. Mantener seleccionadas las opciones `Enable Admin State` y `Create Subnet` y dejar `nova` en `Availability Zone Hints`.
+
++
+image::CreateNetwork-Name.png[]
+
+. En la ficha `Subnet` del asistente completa el nombre de la subred siguiendo la plantilla nombre del proyecto seguido de `-subnet`. En `Network Address` introducir las direcciones de la red del proyecto en formato CIDR (p.e. `10.0.0.0/24). Dejar el resto con los valores predeterminados como se muestra en la figura.
+
++
+[NOTE]
+====
+OpenStack-STIC  está configurado para que las redes de proyecto que se definan tienen que ser subredes de la red `10.0.0.0/8`, definiendo un rango de direcciones comprendidas desde la `10.0.0.0` hasta la `10.255.255.255`. Para la mayoría de los casos, una red `10.0.0.0/24` es el valor más adecuado para `Network Address`.
+====
++
+image::CreateNetwork-Subnet.png[]
+
+. En la ficha `Subnet Details` del asistente deja activado `Enable DHCP` y configura los DNS que se proporcionarán a las instancias en esta red. Los DNS se introducen en `DNS Name Servers` introduciendo uno por línea en el caso de tener que introducir varios. Introduciremos al menos un DNS de la UAL (`150.214.156.2`).
+
++
+image::CreateNetwork-SubnetDetails.png[]
+
+. Pulsar `Create` en el asistente para crear la red.
+
+Una vez creada la red del proyecto, hay que crear un router para conectarla a la red de la UAL de forma que las instancias de la red del proyecto tengan puedan estar conectadas a Internet. En la sección siguiente se explica cómo configurar el router del proyecto.
+
+=== Crear router de proyecto
+
+La red de proyecto tiene que conectarse a la red de la UAL a través de un router que crearemos a continuación.
+
+. Inicia sesión en https://openstack.stic.ual.es/horizon[OpenStack-STIC,window=_blank].
+. En el menú de la izquierda selecciona `Project | Network | Routers`.
+. Pulsa el botón `Create Router`
+. En `Router Name` introduciremos el nombre del router siguiendo la plantilla nombre del proyecto seguido de `-net` (p,e. `johndoe-net`). Mantener seleccionada la opción `Enable Admin State` y dejar `nova` en `Availability Zone Hints`.
+. En `External Network` seleccionar `ual-net` de la lista.
+
+image::CreateRouter.png[]
+
+Una vez creado el router del proyecto, falta conectarlo a la red del proyecto. Por ahora, sólo se encuentra conectado a la red de externa. Podemos comprobarlo si seleccionamos `Project | Network | Network Topology`.
+
+image::NetworkTopologyUnfinished.png[]
+
+En la sección siguiente se explica cómo terminar de configurar el router del proyecto conectándolo a la red del proyecto.
+
+=== Añadir interfaz al router
+
+Para terminar de configurar el router y la configuración de red del proyecto hay que añadir una segunda interfaz de red al router para conectarlo a la red del proyecto.
+
+. Inicia sesión en https://openstack.stic.ual.es/horizon[OpenStack-STIC,window=_blank].
+. Puedes crear la segunda interfaz de red del router de cualquiera de estas dos formas:
+* En el menú de la izquierda selecciona `Project | Network | Network Topology`. Sitúa el ratón sobre el router y selecciona el botón `Add Inteface`
++
+image::NetworkTopology-AddInterface-Topology.png[]
+* En el menú de la izquierda selecciona `Project | Network | Routers`. Haz clic sobre el enlace del router. En la ficha `Interfaces` pulsa el botón `Add Interface`.
++
+image::NetworkTopology-AddInterface-Router.png[]
+
+. En el formulario `Add Interface` selecciona la red del proyecto para que el router quede conectado a la red del proyecto a través de esta interfaz.
+
++
+image::AddInterface.png[]
+
+. Pulsa el botón `Submit` para guardar los cambios.
+
+Finalmente, podemos ver la red configurada en `Project | Network | Network Topology`.
+
+image::NetworkTopologyFinished.png[]
+
+== Operaciones extendidas sobre instancias
+
+=== Redimensionar una instancia
+
+Si una instancia necesita ampliar los recursos iniciales con los que fue creada, podemos ampliarlos cambiándole el _sabor (flavour)_.
+
+[NOTE]
+====
+Es importante que la instancia esté apagada antes de proceder a redimensionarla.
+====
+
+1. Seleccionar `Project | Compute | Instances`
+1. Desplegar el menú de acciones de la instancia a mover y seleccionar `Resize Instance`. 
+1. Seleccionar el nuevo _sabor_ en el cuadro de diálogo.
+
++
+image::ResizeInstance.png[]
+
+1. Pulsar el botón `Resize` en el asistente.
+1. Tras la ampliación, pulsar el botón `Confirm Resize/Migrate`.
+1. Iniciar la instancia con su nuevo _sabor_ pulsando el bótón `Start Instance`.
+
+=== Añadir claves SSH
+
+Hay ocasiones en las que queremos que en una instancia puedan iniciar sesión varios usuarios en una misma cuenta. Esto es especialmente útil para administradores. En estas situaciones la instancia debe tener la clave pública de cada uno de los usuarios que vayan a acceder a ella. Esto lo podemos realizar propocionando las distintas claves públicas en el momento de la creación o a posteriori, una vez que la instancia está creada.
+
+Acceder a la clave pública a incorporar (p.e. `id_rsa.pub`) con el comando siguiente
+
+`cat ~/.ssh/id_rsa.pub`
+
+==== Añadir varias claves SSH durante la creación de una instancia
+
+Durante lo creación de una instancia, **no añadas ninguna clave durante la creación de la instancia** e introduce el código siguiente en el cuadro de texto `Customization Script` del paso `Configuration` del asistente de creación de instancias. 
+
+++++
+<script src="https://gist.github.com/ualmtorres/2b7bb36502a90bea6d0c573d2356a167.js"></script>
+++++
+
+Crea un item en `ssh_authorized_keys` con la clave pública de cada uno de los usuarios que vayan a iniciar sesión en la instancia.
+
+[CAUTION]
+====
+No introduzcas ninguna clave en el paso `Key Pair` del asistente. Añade todas las claves directamente en el paso `Configuration`.
+====
+
+==== Añadir nuevas claves SSH a una instancia existente
+
+Edita el archivo `~/.ssh/authorized_keys` y pega directamente al final del archivo las claves públicas a añadir.
+
+== Operaciones reservadas a administradores de OpenStack-STIC
+
+=== Administración de usuarios
+
+==== Restablecer contraseña
+
+Para cambiar la contraseña de un usuario, seleccionar el proyecto `admin` y mostrar la lista de usuarios seleccionando `Identity | Users`. 
+
+En el menú de acciones del usuario, seleccionar `Change Password` y completar los nuevos valores en el formulario.
+
+==== Desactivar/Activar usuario
+
+Para desactivar temporalmente la cuenta de un usuario o volver a activarla, seleccionar el proyecto `admin` y mostrar la lista de usuarios seleccionando `Identity | Users`. 
+
+En el menú de acciones del usuario, seleccionar `Disable User` o `Enable User`.
+
+==== Crear usuario
+
+. Seleccionar el menú `Identity | Users`. 
+. Pulsar el botón `Create user`
+. Completar los valores siguientes en el formulario
+.. `User Name`: Login de Campus Virtual
+.. `Description`: Nombre completo
+.. `Correo electrónico`: Dirección de correo electrónico
+.. `Contraseña`
+.. Mantener el rol `user`. Esto determinará los privilegios del usuario
+.. Si ya existe un proyecto al que vincular el usuario, seleccionarlo de la lista `Primary Project`. Si no, crearemos un proyecto nuevo sobre la marcha pulsando el botón `+` de la lista desplegable `Primary Project`.
+
++
+[NOTE]
+====
+Crear un proyecto sobre la marcha abre el Asistente para la creación de proyectos. Consulta la sección <<Crear proyecto>> para más información.
+====
+
+. Pulsar el botón `Create User` para proceder a la creación del usuario.
+
+==== Eliminar usuario
+
+Para eliminar un usuario, seleccionar el proyecto `admin` y mostrar la lista de usuarios seleccionando `Identity | Users`. 
+
+En el menú de acciones del usuario, seleccionar `Delete User` y confirmar su eliminación en el cuadro de diálogo.
+
+=== Mover instancia
+
+Para mover una instancia del servidor en el que se encuentra a otro diferente, seguir los pasos siguientes desde el proyecto `admin`:
+
+[NOTE]
+====
+Es importante que la instancia esté apagada antes de proceder a cambiarla de servidor.
+====
+
+1. Seleccionar `Admin | Compute | Instances`
+1. Desplegar el menú de acciones de la instancia a mover y seleccionar `Migrate Instance`. 
+
++
+[IMPORTANT]
+====
+No confundir la acción `Migrate Instance` con `Live Migrate Instance`. Esta última está disponible en OpenStack-STIC pero no tiene funcionalidad asociada por lo que no debe usarse.
+====
+
+1. Tras unos instantes se pedirá que se confirme la migración a otro servidor
+
++
+image::ConfirmMigration.png[]
+
+1. Pulsar el botón `Confirm Resize/Migrate`.
+1. Una vez migrada la instancia a otro servidor, iniciar la instancia pulsando el bótón `Hard Reboot Instance`. La opción `Start Instance` de instancias de otros proyectos no está disponible para el usuario `admin`.
+
+=== Administración de proyectos
+
+==== Crear proyecto
+
+. Inicia sesión en https://openstack.stic.ual.es/horizon[OpenStack-STIC,window=_blank].
+. En el menú de la izquierda selecciona `Identity | Projects`.
+. Pulsa el botón `Create Project`
+. En la ficha `Project Information` del asistente completa el nombre del proyecto (p.e. el login del usuario en Campus Virtual si es un proyecto individual o cualquier otro si es un proyecto compartido).
+. Completa la descripción. Para proyectos individuales se recomienda seguir la plantilla `Proyecto de` seguido del nombre completo
+
++
+image::CreateProject-Information.png[]
+
+. En la ficha `Project Members` agrega desde la izquierda (`All Users`) los miembros del proyecto hasta que la parte derecha (`Project Members`) tenga los miembros deseados.
+
++
+image::CreateProject-Members.png[]
+
+. Pulsa `Create Project`.
+
+==== Administrar miembros
+
+. Inicia sesión en https://openstack.stic.ual.es/horizon[OpenStack-STIC,window=_blank].
+. En el menú de la izquierda selecciona `Identity | Projects`.
+. En la lista `Projects` selecciona el proyecto al que quieras modificar sus miembros, y selecciona la opción `Manage Members` en el listbox de `Actions`.
+. En la ficha `Project Members` agrega desde la izquierda (`All Users`) los miembros del proyecto hasta que la parte derecha (`Project Members`) tenga los miembros deseados.
+. Pulsa `Save` para guardar los cambios.
+
+==== Modificar la cuota de un proyecto
+
+Los proyectos de OpenStack-STIC ofrecen una cuota predetermianda de recursos de cómputo, almacenamiento y red. Es posible cambiar la cuota asignada siguiendo estos pasos:
+
+. Inicia sesión en https://openstack.stic.ual.es/horizon[OpenStack-STIC,window=_blank].
+. En el menú de la izquierda selecciona `Identity | Projects`.
+. En la lista `Projects` selecciona el proyecto al que quieras modificar sus miembros, y selecciona la opción `Modify Quotas` en el listbox de `Actions`.
+. Configura los valores adecuados el cuadro de diálogo `Edit Quotas`.
+
++
+image::EditQuotas.png[]
+
+. Pulsa `Save` para guardar los cambios.
+
+=== Asignar IP flotante a un proyecto
+
+La red externa de OpenStack-STIC tiene reservado un rango de direcciones IP para servidores a los que poder asignar nombres DNS, servidores particulares, entre otros. Así, el rango de direcciones al que se accede cuando se solicita una IP flotante es un subconjunto del conjunto total de direcciones de la red `ual-net`.
+
+Para asignar a un proyecto concreto una IP flotante del grupo de direcciones reservadas, un administrador seguirá estos pasos:
+
+. Inicia sesión en https://openstack.stic.ual.es/horizon[OpenStack-STIC,window=_blank].
+. En el menú de la izquierda selecciona `Admin | Network | Floating IPs`.
+. Pulsa el botón `Allocate IP to Project`
+. En el cuadro de diálogo seleccionar el proyecto al que asignar la IP flotante, indicar la IP a asignar y proporcionar una descripción.
+
+image::AllocateFloatingIPAdmin.png[]
+
+Tras estos pasos, el proyecto de destino tendrá adjudicada esa IP flotante para usarla convenientemente.
 
 == Recursos complementarios
 

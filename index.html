@@ -441,11 +441,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#truesolicitud-de-cuenta-de-usuario">5.1. Solicitud de cuenta de usuario</a></li>
 <li><a href="#truecambio-de-la-contrase-a">5.2. Cambio de la contraseña</a></li>
-<li><a href="#trueregistra-tus-claves-ssh">5.3. Registra tus claves SSH</a></li>
-<li><a href="#trueconfiguraci-n-de-las-reglas-de-seguridad">5.4. Configuración de las Reglas de seguridad</a></li>
-<li><a href="#truecreaci-n-de-una-m-quina-virtual">5.5. Creación de una máquina virtual</a></li>
-<li><a href="#trueasignaci-n-de-ip-flotante">5.6. Asignación de IP flotante</a></li>
-<li><a href="#trueconexi-n-a-la-m-quina-virtual">5.7. Conexión a la máquina virtual</a></li>
+<li><a href="#truegeneraci-n-de-claves-ssh">5.3. Generación de claves SSH</a></li>
+<li><a href="#trueregistra-tus-claves-ssh">5.4. Registra tus claves SSH</a></li>
+<li><a href="#trueconfiguraci-n-de-las-reglas-de-seguridad">5.5. Configuración de las Reglas de seguridad</a></li>
+<li><a href="#truecreaci-n-de-una-m-quina-virtual">5.6. Creación de una máquina virtual</a></li>
+<li><a href="#trueiniciar-reiniciar-y-apagar-una-m-quina-virtual">5.7. Iniciar, reiniciar y apagar una máquina virtual</a></li>
+<li><a href="#trueasignaci-n-de-ip-flotante">5.8. Asignación de IP flotante</a></li>
+<li><a href="#trueconexi-n-a-la-m-quina-virtual">5.9. Conexión a la máquina virtual</a></li>
 </ul>
 </li>
 <li><a href="#trueim-genes-disponibles-en-openstack-stic">6. Imágenes disponibles en OpenStack-STIC</a></li>
@@ -454,26 +456,56 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#truecreaci-n-de-un-volumen">7.1. Creación de un volumen</a></li>
 <li><a href="#trueconexi-n-de-un-volumen-a-una-instancia">7.2. Conexión de un volumen a una instancia</a></li>
 <li><a href="#truedesconexi-n-de-un-volumen">7.3. Desconexión de un volumen</a></li>
-<li><a href="#truetransferir-un-volumen-a-otro-proyecto">7.4. Transferir un volumen a otro proyecto</a></li>
+<li><a href="#trueextender-un-volumen">7.4. Extender un volumen</a></li>
+<li><a href="#truetransferir-un-volumen-a-otro-proyecto">7.5. Transferir un volumen a otro proyecto</a></li>
 </ul>
 </li>
-<li><a href="#trueaprovisionamiento-de-una-instancia-durante-la-creaci-n">8. Aprovisionamiento de una instancia durante la creación</a></li>
+<li><a href="#trueaprovisionamiento-de-una-instancia-durante-la-creaci-n">8. Aprovisionamiento de una instancia durante la creación</a>
+<ul class="sectlevel2">
+<li><a href="#truecreaci-n-de-una-instancia-con-acceso-mediante-login-y-password">8.1. Creación de una instancia con acceso mediante login y password</a></li>
+</ul>
+</li>
 <li><a href="#truealmacenamiento-compartido-de-archivos-nfs">9. Almacenamiento compartido de archivos (NFS)</a>
 <ul class="sectlevel2">
 <li><a href="#truecreaci-n-de-un-volumen-nfs">9.1. Creación de un volumen NFS</a></li>
 <li><a href="#trueconfiguraci-n-de-las-reglas-de-acceso">9.2. Configuración de las reglas de acceso</a></li>
 <li><a href="#trueconexi-n-de-un-volumen-nfs-a-una-instancia">9.3. Conexión de un volumen NFS a una instancia</a></li>
 <li><a href="#trueextender-un-volumen-nfs">9.4. Extender un volumen NFS</a></li>
+<li><a href="#trueeliminar-un-volumen-nfs">9.5. Eliminar un volumen NFS</a></li>
 </ul>
 </li>
-<li><a href="#truebalancedores-como-servicio-lbaas">10. Balancedores como servicio (LBaaS)</a>
+<li><a href="#truebalanceadores-como-servicio-lbaas">10. Balanceadores como servicio (LBaaS)</a>
 <ul class="sectlevel2">
-<li><a href="#truecreaci-n-del-balanceador">10.1. Creación del balanceador</a></li>
-<li><a href="#trueconfiguraci-n-de-una-ip-flotante-para-el-balanceador">10.2. Configuración de una IP flotante para el balanceador</a></li>
+<li><a href="#truecreaci-n-de-un-balanceador">10.1. Creación de un balanceador</a></li>
+<li><a href="#trueconfiguraci-n-de-una-ip-flotante-para-un-balanceador">10.2. Configuración de una IP flotante para un balanceador</a></li>
 <li><a href="#trueprueba-del-balanceador">10.3. Prueba del balanceador</a></li>
+<li><a href="#truemodificar-el-em-pool-em">10.4. Modificar el <em>pool</em></a></li>
+<li><a href="#trueeliminaci-n-de-un-balanceador">10.5. Eliminación de un balanceador</a></li>
 </ul>
 </li>
-<li><a href="#truerecursos-complementarios">11. Recursos complementarios</a></li>
+<li><a href="#truenetworking">11. Networking</a>
+<ul class="sectlevel2">
+<li><a href="#trueconfiguraci-n-de-la-infraestructura-b-sica-de-red-de-un-proyecto">11.1. Configuración de la infraestructura básica de red de un proyecto</a></li>
+<li><a href="#truecrear-red-de-proyecto">11.2. Crear red de proyecto</a></li>
+<li><a href="#truecrear-router-de-proyecto">11.3. Crear router de proyecto</a></li>
+<li><a href="#truea-adir-interfaz-al-router">11.4. Añadir interfaz al router</a></li>
+</ul>
+</li>
+<li><a href="#trueoperaciones-extendidas-sobre-instancias">12. Operaciones extendidas sobre instancias</a>
+<ul class="sectlevel2">
+<li><a href="#trueredimensionar-una-instancia">12.1. Redimensionar una instancia</a></li>
+<li><a href="#truea-adir-claves-ssh">12.2. Añadir claves SSH</a></li>
+</ul>
+</li>
+<li><a href="#trueoperaciones-reservadas-a-administradores-de-openstack-stic">13. Operaciones reservadas a administradores de OpenStack-STIC</a>
+<ul class="sectlevel2">
+<li><a href="#trueadministraci-n-de-usuarios">13.1. Administración de usuarios</a></li>
+<li><a href="#truemover-instancia">13.2. Mover instancia</a></li>
+<li><a href="#trueadministraci-n-de-proyectos">13.3. Administración de proyectos</a></li>
+<li><a href="#trueasignar-ip-flotante-a-un-proyecto">13.4. Asignar IP flotante a un proyecto</a></li>
+</ul>
+</li>
+<li><a href="#truerecursos-complementarios">14. Recursos complementarios</a></li>
 </ul>
 </div>
 </div>
@@ -524,7 +556,55 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li>
 <p>Servicios de Almacenamiento tanto de bloques como volúmenes NFS.</p>
 </li>
+<li>
+<p>Balanceadores como servicio.</p>
+</li>
 </ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>OpenStack-STIC es <a href="https://www.openstack.org/software/stein/">OpenStack Stein</a> e incluye los componentes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Keystone: Identificación</p>
+</li>
+<li>
+<p>Glance: Imágenes</p>
+</li>
+<li>
+<p>Nova: Cómputo</p>
+</li>
+<li>
+<p>Placement: Reserva y gestión de recursos</p>
+</li>
+<li>
+<p>Neutron: Networking</p>
+</li>
+<li>
+<p>Neutron Load Balancer: Balanceadores</p>
+</li>
+<li>
+<p>Horizon: Interfaz web</p>
+</li>
+<li>
+<p>Cinder: Almacenamiento de bloques</p>
+</li>
+<li>
+<p>Manila: Almacenamiento compartido</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -534,16 +614,51 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>Algunos de los servidores del STIC, como los de registro de imágenes Docker y clusters de Kubernetes, son realmente máquinas virtuales creadas dentro de OpenStack-STIC.</p>
 </div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Todos los servicios de OpenStack-STIC y de Cloud-STIC son servicios en red privada.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://192.168.66.52" target="_blank">Registro de imágenes Docker</a></p>
+<p><a href="https://harbor.stic.ual.es" target="_blank">Registro de imágenes Docker red privada</a></p>
 </li>
 <li>
-<p><a href="https://192.168.66.52" target="_blank">Kubernetes</a></p>
+<p><a href="https://rancher.stic.ual.es" target="_blank">Kubernetes red privada</a></p>
 </li>
 <li>
-<p>&#8230;&#8203;</p>
+<p><a href="https://home.stic.ual.es" target="_blank">Portal de acceso a Cloud-STIC</a></p>
+</li>
+<li>
+<p><a href="https://portal.stic.ual.es" target="_blank">Portal de documentación</a></p>
+</li>
+<li>
+<p><a href="https://privatebin.stic.ual.es" target="_blank">PrivateBin</a></p>
+</li>
+<li>
+<p><a href="https://minio.stic.ual.es" target="_blank">Minio Object Server (en curso)</a></p>
+</li>
+<li>
+<p><a href="https://monitor.stic.ual.es" target="_blank">Monitorización de servicios (en curso)</a></p>
+</li>
+<li>
+<p><a href="https://kibana.stic.ual.es" target="_blank">Kibana log server (en curso)</a></p>
+</li>
+<li>
+<p><a href="https://nextcloud.stic.ual.es" target="_blank">Nextcloud Document server (en curso)</a></p>
+</li>
+<li>
+<p><a href="https://jitsi.stic.ual.es" target="_blank">Jitsi Video conferencing (en curso)</a></p>
 </li>
 </ul>
 </div>
@@ -595,7 +710,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Solicita a <a href="mailto:xxxxx@ual.es">xxxxx@ual.es</a> tu acceso a OpenStack-STIC. Te proporcionarán un dominio, un login y un password de acceso.</p>
+<p>Solicita mediante <a href="https://caustic.ual.es">CAU</a> tu acceso a OpenStack-STIC. Te proporcionarán un dominio, un login y un password de acceso.</p>
 </li>
 <li>
 <p>Introduce tus credenciales en <a href="https://openstack.stic.ual.es/horizon" target="<em>blank">OpenStack-STIC</a>. Una vez dentro del sistema tendrás acceso a un _proyecto</em> OpenStack.</p>
@@ -640,7 +755,38 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueregistra-tus-claves-ssh"><a class="anchor" href="#trueregistra-tus-claves-ssh"></a>5.3. Registra tus claves SSH</h3>
+<h3 id="truegeneraci-n-de-claves-ssh"><a class="anchor" href="#truegeneraci-n-de-claves-ssh"></a>5.3. Generación de claves SSH</h3>
+<div class="paragraph">
+<p>Las claves SSH ofrecen una forma más segura de conexión remota ya que evitan la introducción de usuario y contraseña en los inicios de sesión, reduciendo el riesgo de ataques de fuerza bruta para descubrimiento de contraseñas. Además, suponen una opción más cómoda de inicio de sesión ya que evitan el recordar las contraseñas en cada conexión.</p>
+</div>
+<div class="paragraph">
+<p>Las claves SSH se generan en pares, dando lugar a la clave privada y a la clave pública. La clave privada ha de ser protegida y no debe ser compartida con nadie. La clave pública puede ser compartida libremente y se insertará en las instancias en el momento de su creación.</p>
+</div>
+<div class="paragraph">
+<p>Para generar un par de claves SSH en una terminal Linux o Mac ejecuta el comando</p>
+</div>
+<div class="paragraph">
+<p><code>ssh-keygen</code></p>
+</div>
+<div class="paragraph">
+<p>Si no indicamos otro nombre, esto genera dos archivos con los nombres <code>id_rsa</code> e <code>id_rsa.pub</code> que se almacenarán en la carpeta <code>home</code> del usuario en la rutas:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Clave privada: <code>/home/user/.ssh/id_rsa</code></p>
+</li>
+<li>
+<p>Clave pública: <code>/home/user/.ssh/id_rsa.pub</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>También se pedirá la introducción de una contraseña para el uso del par de claves. Por ahora, lo dejaremos sin contraseña.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueregistra-tus-claves-ssh"><a class="anchor" href="#trueregistra-tus-claves-ssh"></a>5.4. Registra tus claves SSH</h3>
 <div class="paragraph">
 <p>Para el acceso SSH a máquinas virtuales Linux creadas en OpenStack-STIC es necesario tener registrada una clave SSH pública en la cuenta de usuario de OpenStack-STIC. Las clave pública SSH será inyectada a las instancias creadas en el proceso de inicialización. Una vez creada la instancia, se accederá a ella mediante la clave privada SSH correspondiente almacenada en el cliente.</p>
 </div>
@@ -707,7 +853,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueconfiguraci-n-de-las-reglas-de-seguridad"><a class="anchor" href="#trueconfiguraci-n-de-las-reglas-de-seguridad"></a>5.4. Configuración de las Reglas de seguridad</h3>
+<h3 id="trueconfiguraci-n-de-las-reglas-de-seguridad"><a class="anchor" href="#trueconfiguraci-n-de-las-reglas-de-seguridad"></a>5.5. Configuración de las Reglas de seguridad</h3>
 <div class="paragraph">
 <p>En OpenStack-STIC, cada proyecto tiene sus propias reglas de seguridad, y funcionan a modo de cortafuegos sobre las instancias definidas en el proyecto.</p>
 </div>
@@ -803,7 +949,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="truecreaci-n-de-una-m-quina-virtual"><a class="anchor" href="#truecreaci-n-de-una-m-quina-virtual"></a>5.5. Creación de una máquina virtual</h3>
+<h3 id="truecreaci-n-de-una-m-quina-virtual"><a class="anchor" href="#truecreaci-n-de-una-m-quina-virtual"></a>5.6. Creación de una máquina virtual</h3>
 <div class="paragraph">
 <p>Puedes crear una máquina virtual seleccionando <code>Project | Compute | Instances</code> y pulsando el botón <code>Launch instance</code>.</p>
 </div>
@@ -957,7 +1103,40 @@ Si más adelante necesitas crear uno o más volúmenes para tu instancia, podrá
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueasignaci-n-de-ip-flotante"><a class="anchor" href="#trueasignaci-n-de-ip-flotante"></a>5.6. Asignación de IP flotante</h3>
+<h3 id="trueiniciar-reiniciar-y-apagar-una-m-quina-virtual"><a class="anchor" href="#trueiniciar-reiniciar-y-apagar-una-m-quina-virtual"></a>5.7. Iniciar, reiniciar y apagar una máquina virtual</h3>
+<div class="paragraph">
+<p>Puedes iniciar, reiniciar y apagar una máquina virtual desplegando las acciones que aparecen a su lado en el listado de instancias del proyecto <code>Project | Compute | Instances</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Iniciar instancia: <code>Start Instance</code></p>
+</li>
+<li>
+<p>Apagar instancia: <code>Shutoff Instance</code></p>
+</li>
+<li>
+<p>Reiniciar instancia: <code>Soft Reboot Instance</code> o <code>Hard Reboot Instance</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>No confundir <code>Shutoff Instance</code> con <code>Delete Instance</code>. <code>Shutoff instance</code> apaga la instancia. En cambio, <code>Delete Instance</code> la elimina y lo perderemos todo.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueasignaci-n-de-ip-flotante"><a class="anchor" href="#trueasignaci-n-de-ip-flotante"></a>5.8. Asignación de IP flotante</h3>
 <div class="paragraph">
 <p>Las instancias creadas son conectadas a una de las redes privadas de un proyecto OpensStack-STIC. Inicialmente, es posible la comunicación entre las instancias de dicha red. Pero de forma predeterminada, no es posible la conexión a la instancia creada desde nuestro equipo de trabajo, o en general, desde otro equipo que esté fuera de la red del proyecto en el que se ha creado la máquina virtual.</p>
 </div>
@@ -1028,7 +1207,7 @@ Si más adelante necesitas crear uno o más volúmenes para tu instancia, podrá
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueconexi-n-a-la-m-quina-virtual"><a class="anchor" href="#trueconexi-n-a-la-m-quina-virtual"></a>5.7. Conexión a la máquina virtual</h3>
+<h3 id="trueconexi-n-a-la-m-quina-virtual"><a class="anchor" href="#trueconexi-n-a-la-m-quina-virtual"></a>5.9. Conexión a la máquina virtual</h3>
 <div class="paragraph">
 <p>Una vez creada la máquina virtual y asignada una IP flotante en el caso de que queramos conectarnos a ella desde una red diferente a la que fue creada, usaremos un cliente para conectarnos a ella usando un cliente.</p>
 </div>
@@ -1134,9 +1313,19 @@ Si más adelante necesitas crear uno o más volúmenes para tu instancia, podrá
 <td class="tableblock halign-center valign-top"><p class="tableblock">Key Pair</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">CentOS 7</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">centos</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Key Pair</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-center valign-top"><p class="tableblock">cirros</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">cirros</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">Key Pair</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Windows 10</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">usuario</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">credenciales</p></td>
 </tr>
 </tbody>
 </table>
@@ -1148,7 +1337,7 @@ Si más adelante necesitas crear uno o más volúmenes para tu instancia, podrá
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Contacta con <a href="mailto:xxxxx@ual.es">xxxxx@ual.es</a> para obtener la contraseña para instancias en las que el modo de acceso no sea con Key Pair.</p>
+<p>Contacta vía <a href="https://caustic.ual.es">CAU</a> para obtener la contraseña para instancias en las que el modo de acceso no sea con Key Pair.</p>
 </div>
 </td>
 </tr>
@@ -1304,7 +1493,48 @@ Si más adelante necesitas crear uno o más volúmenes para tu instancia, podrá
 </div>
 </div>
 <div class="sect2">
-<h3 id="truetransferir-un-volumen-a-otro-proyecto"><a class="anchor" href="#truetransferir-un-volumen-a-otro-proyecto"></a>7.4. Transferir un volumen a otro proyecto</h3>
+<h3 id="trueextender-un-volumen"><a class="anchor" href="#trueextender-un-volumen"></a>7.4. Extender un volumen</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Inicia sesión en <a href="https://openstack.stic.ual.es/horizon" target="_blank">OpenStack-STIC</a>.</p>
+</li>
+<li>
+<p>Selecciona el proyecto en el que está el volumen a desconectar.</p>
+</li>
+<li>
+<p>En el menú de la izquierda selecciona <code>Project | Volumes</code>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Desconecta el volumen antes de ampliarlo.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>En la pestaña <code>Volumes</code> selecciona el volumen que quieras extender, despliega el listbox de <code>Actions</code> y selecciona <code>Extend Volume</code>.</p>
+</li>
+<li>
+<p>Configura el nuevo tamaño del volumen en el formulario.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/ExtendVolume.png" alt="ExtendVolume.png">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="truetransferir-un-volumen-a-otro-proyecto"><a class="anchor" href="#truetransferir-un-volumen-a-otro-proyecto"></a>7.5. Transferir un volumen a otro proyecto</h3>
 <div class="paragraph">
 <p>Un volumen sólo se puede utilizar en el proyecto al que pertence, pudiendo intercambiarse entre las distintas máquinas virtuales del proyecto. Sin embargo, hay situaciones en las que estamos interesados en usar un volumen en una instancia que tenemos en otro proyecto, o transferir el volumen a otro usuario de OpenStack-STIC. Esta operación es la que se conoce como <em>Transferir un volumen</em> en OpenStack.</p>
 </div>
@@ -1391,7 +1621,7 @@ Si más adelante necesitas crear uno o más volúmenes para tu instancia, podrá
 <p>Al crear una instancia en OpenStack-STIC es posible aprovisionarla (configurarla) durante su proceso de creación. De esta forma, nuestras instancias ya tendrán instalados y configurados los paquetes necesarios.</p>
 </div>
 <div class="paragraph">
-<p>La configuración de una instancia se realiza en el paso de <em>Configuration</em> del asistente. Básicamente, hay que incluir un script <code>bash</code> en el cuadro de texto <em>Customization Script</em> tal y como muestra la figura siguiente.</p>
+<p>La configuración de una instancia se realiza en el paso de <code>Configuration</code> del asistente. Básicamente, hay que incluir un script <code>bash</code> en el cuadro de texto <code>Customization Script</code> tal y como muestra la figura siguiente.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./images/configuracion.png" alt="configuracion.png"></span></p>
@@ -1400,6 +1630,21 @@ Si más adelante necesitas crear uno o más volúmenes para tu instancia, podrá
 <p>A continuacion, se muestra el script de configuración de Docker CE en una instancia Ubuntu durante su creación.</p>
 </div>
 <script src="https://gist.github.com/ualmtorres/dec19ebed2981459f8e5677979eb04c3.js"></script>
+<div class="sect2">
+<h3 id="truecreaci-n-de-una-instancia-con-acceso-mediante-login-y-password"><a class="anchor" href="#truecreaci-n-de-una-instancia-con-acceso-mediante-login-y-password"></a>8.1. Creación de una instancia con acceso mediante login y password</h3>
+<div class="paragraph">
+<p>Durante lo creación de una instancia introduce el código siguiente en el cuadro de texto <code>Customization Script</code> del paso <code>Configuration</code> del asistente de creación de instancias.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/InstanceConfiguration.png" alt="InstanceConfiguration.png">
+</div>
+</div>
+<div class="paragraph">
+<p>Recuerda cambiar la contraseña de la línea 2.</p>
+</div>
+<script src="https://gist.github.com/ualmtorres/c3e7123d3e414e9e54ad4d3ee1051429.js"></script>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1655,10 +1900,35 @@ $ sudo mount 192.168.128.17:/var/lib/manila/mnt/share-b65fa3e5-233d-4ea5-9ad2-ec
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="trueeliminar-un-volumen-nfs"><a class="anchor" href="#trueeliminar-un-volumen-nfs"></a>9.5. Eliminar un volumen NFS</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Inicia sesión en <a href="https://openstack.stic.ual.es/horizon" target="_blank">OpenStack-STIC</a>.</p>
+</li>
+<li>
+<p>Selecciona el proyecto en el que está creado el volumen NFS.</p>
+</li>
+<li>
+<p>En el menú de la izquierda selecciona <code>Project | Share</code>.</p>
+</li>
+<li>
+<p>Asegúrate que no hay instancias que estén usando el volumen NFS a eliminar.</p>
+</li>
+<li>
+<p>En el submenú <code>Shares</code> despliega el menú <code>Actions</code> del volumen NFS que quieras eliminar y selecciona <code>Delete Share</code>.</p>
+</li>
+<li>
+<p>Confirma su eliminación en el cuadro de diálogo.</p>
+</li>
+</ol>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="truebalancedores-como-servicio-lbaas"><a class="anchor" href="#truebalancedores-como-servicio-lbaas"></a>10. Balancedores como servicio (LBaaS)</h2>
+<h2 id="truebalanceadores-como-servicio-lbaas"><a class="anchor" href="#truebalanceadores-como-servicio-lbaas"></a>10. Balanceadores como servicio (LBaaS)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>OpenStack-STIC ofrece un servicio muy interesante para poder crear balanceadores de carga. Los balanceadores definidos podrán distribuir las peticiones entre cada uno de los miembros del conjunto de recursos balanceados. LBaaS nos pemitirá definir varios <em>pools</em> de recursos, cada uno con sus miembros. En cada <em>pool</em> se establecerá una política o método de balanceo a elegir entre <em>least connections, round robin</em> o <em>source ip</em>.</p>
@@ -1667,7 +1937,7 @@ $ sudo mount 192.168.128.17:/var/lib/manila/mnt/share-b65fa3e5-233d-4ea5-9ad2-ec
 <p>Para ilustrar su uso partimos de dos servidores Apache instalados en dos máquinas virtuales diferentes. Crearemos un balanceador con política de <em>round robin</em>.</p>
 </div>
 <div class="sect2">
-<h3 id="truecreaci-n-del-balanceador"><a class="anchor" href="#truecreaci-n-del-balanceador"></a>10.1. Creación del balanceador</h3>
+<h3 id="truecreaci-n-de-un-balanceador"><a class="anchor" href="#truecreaci-n-de-un-balanceador"></a>10.1. Creación de un balanceador</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1743,7 +2013,7 @@ $ sudo mount 192.168.128.17:/var/lib/manila/mnt/share-b65fa3e5-233d-4ea5-9ad2-ec
 </div>
 </div>
 <div class="sect3">
-<h4 id="truepaso-5-configurar-le-monitor-del-em-pool-em"><a class="anchor" href="#truepaso-5-configurar-le-monitor-del-em-pool-em"></a>10.1.5. Paso 5. Configurar le monitor del <em>pool</em></h4>
+<h4 id="truepaso-5-configurar-el-monitor-del-em-pool-em"><a class="anchor" href="#truepaso-5-configurar-el-monitor-del-em-pool-em"></a>10.1.5. Paso 5. Configurar el monitor del <em>pool</em></h4>
 <div class="paragraph">
 <p>Puede ocurrir que algunos miembros del <em>pool</em> dejen de estar disponibles en cualquier momento. Para evitar dirigir peticiones a miembros no disponibles, se define un monitor, que comprueba periódicamente el estado de los miembros. Cuando un miembro deja de contestar se retira del <em>pool</em> hasta que no vuelva a estar disponible.</p>
 </div>
@@ -1769,7 +2039,7 @@ $ sudo mount 192.168.128.17:/var/lib/manila/mnt/share-b65fa3e5-233d-4ea5-9ad2-ec
 </div>
 </div>
 <div class="sect2">
-<h3 id="trueconfiguraci-n-de-una-ip-flotante-para-el-balanceador"><a class="anchor" href="#trueconfiguraci-n-de-una-ip-flotante-para-el-balanceador"></a>10.2. Configuración de una IP flotante para el balanceador</h3>
+<h3 id="trueconfiguraci-n-de-una-ip-flotante-para-un-balanceador"><a class="anchor" href="#trueconfiguraci-n-de-una-ip-flotante-para-un-balanceador"></a>10.2. Configuración de una IP flotante para un balanceador</h3>
 <div class="paragraph">
 <p>Definiremos una dirección IP flotante al balanceador, que actuará como la dirección IP de acceso a los recursos balanceados. En nuestro caso, será la IP de acceso a los dos servidores Apache.</p>
 </div>
@@ -1842,10 +2112,643 @@ $ sudo mount 192.168.128.17:/var/lib/manila/mnt/share-b65fa3e5-233d-4ea5-9ad2-ec
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="truemodificar-el-em-pool-em"><a class="anchor" href="#truemodificar-el-em-pool-em"></a>10.4. Modificar el <em>pool</em></h3>
+<div class="paragraph">
+<p>Se pueden añadir o retirar miembros del <em>pool</em> de un balanceador. Tendremos que seguir estos pasos:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Hacer clic sobre el balanceador en la lista de balanceadores disponibles.</p>
+</li>
+<li>
+<p>Hacer clic sobre el <em>listener</em> en la lista de listeners del balanceador.</p>
+</li>
+<li>
+<p>Hacer clic en <code>Default Pool ID</code>.</p>
+</li>
+<li>
+<p>Pulsar el botón <code>Add/Remove Pool Members</code> para añadir o eliminar los miembros del <em>pool</em>.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/AddRemovePoolMembers.png" alt="AddRemovePoolMembers.png">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueeliminaci-n-de-un-balanceador"><a class="anchor" href="#trueeliminaci-n-de-un-balanceador"></a>10.5. Eliminación de un balanceador</h3>
+<div class="paragraph">
+<p>Un balanceador tiene una serie de objetos anidados en su interior (<em>listener, pool</em> y <em>health monitor</em>). Para eliminar el balanceador habrá que eliminar dichos objetos desde dentro hacia afuera.</p>
+</div>
+<div class="paragraph">
+<p>Para ello, seguiremos estos pasos:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Hacer clic sobre el balanceador en la lista de balanceadores disponibles.</p>
+</li>
+<li>
+<p>Hacer clic sobre el <em>listener</em> en la lista de listeners del balanceador.</p>
+</li>
+<li>
+<p>Hacer clic en <code>Default Pool ID</code>.</p>
+</li>
+<li>
+<p>Haz clic en el <code>Health Monitor ID</code>.</p>
+</li>
+<li>
+<p>Despliega el menú del monitor y selecciona <code>Delete Health Monitor</code> y confirma los cambios.</p>
+<div class="imageblock">
+<div class="content">
+<img src="./images/DeleteHealthMonitor.png" alt="DeleteHealthMonitor.png">
+</div>
+</div>
+</li>
+<li>
+<p>Despliega el menú del <em>pool</em>, selecciona <code>Delete Pool</code> y confirma los cambios.</p>
+</li>
+<li>
+<p>Despliega el menú del <em>listener</em>, selecciona <code>Delete Listener</code> y confirma los cambios.</p>
+</li>
+<li>
+<p>Despliega el menú del balanceador, selecciona <code>Delete Load Balancer</code> y confirma los cambios.</p>
+</li>
+</ol>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="truerecursos-complementarios"><a class="anchor" href="#truerecursos-complementarios"></a>11. Recursos complementarios</h2>
+<h2 id="truenetworking"><a class="anchor" href="#truenetworking"></a>11. Networking</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Normalmente, en OpenStack-STIC los administradores facilitan los proyectos con la infraestructura básica de red creada. Esta infraestructura básica consiste en una red para el proyecto a la que se conectarán las instancias creadas. Dicha red de proyecto se conectará a la red la UAL mediante un router virtual, que también se proporcionará configurado.</p>
+</div>
+<div class="sect2">
+<h3 id="trueconfiguraci-n-de-la-infraestructura-b-sica-de-red-de-un-proyecto"><a class="anchor" href="#trueconfiguraci-n-de-la-infraestructura-b-sica-de-red-de-un-proyecto"></a>11.1. Configuración de la infraestructura básica de red de un proyecto</h3>
+<div class="paragraph">
+<p>En OpenStack, la infraestructura básica de red para un proyecto consta de:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Red de proyecto</p>
+</li>
+<li>
+<p>Router de proyecto conectado a red externa y a red de proyecto.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Hay que seguir los pasos siguientes para realizar dicha configuración:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="#truecrear-red-de-proyecto">Crear red de proyecto</a></p>
+</li>
+<li>
+<p><a href="#truecrear-router-de-proyecto">Crear router de proyecto</a></p>
+</li>
+<li>
+<p><a href="#truea-adir-interfaz-al-router">Añadir interfaz al router</a></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="truecrear-red-de-proyecto"><a class="anchor" href="#truecrear-red-de-proyecto"></a>11.2. Crear red de proyecto</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Inicia sesión en <a href="https://openstack.stic.ual.es/horizon" target="_blank">OpenStack-STIC</a>.</p>
+</li>
+<li>
+<p>En el menú de la izquierda selecciona <code>Project | Network | Networks</code>.</p>
+</li>
+<li>
+<p>Pulsa el botón <code>Create Network</code></p>
+</li>
+<li>
+<p>En la ficha <code>Network</code> del asistente completa el nombre de la red siguiendo la plantilla nombre del proyecto seguido de <code>-net</code>. Mantener seleccionadas las opciones <code>Enable Admin State</code> y <code>Create Subnet</code> y dejar <code>nova</code> en <code>Availability Zone Hints</code>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="./images/CreateNetwork-Name.png" alt="CreateNetwork Name.png">
+</div>
+</div>
+</li>
+<li>
+<p>En la ficha <code>Subnet</code> del asistente completa el nombre de la subred siguiendo la plantilla nombre del proyecto seguido de <code>-subnet</code>. En <code>Network Address</code> introducir las direcciones de la red del proyecto en formato CIDR (p.e. `10.0.0.0/24). Dejar el resto con los valores predeterminados como se muestra en la figura.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>OpenStack-STIC  está configurado para que las redes de proyecto que se definan tienen que ser subredes de la red <code>10.0.0.0/8</code>, definiendo un rango de direcciones comprendidas desde la <code>10.0.0.0</code> hasta la <code>10.255.255.255</code>. Para la mayoría de los casos, una red <code>10.0.0.0/24</code> es el valor más adecuado para <code>Network Address</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/CreateNetwork-Subnet.png" alt="CreateNetwork Subnet.png">
+</div>
+</div>
+</li>
+<li>
+<p>En la ficha <code>Subnet Details</code> del asistente deja activado <code>Enable DHCP</code> y configura los DNS que se proporcionarán a las instancias en esta red. Los DNS se introducen en <code>DNS Name Servers</code> introduciendo uno por línea en el caso de tener que introducir varios. Introduciremos al menos un DNS de la UAL (<code>150.214.156.2</code>).</p>
+<div class="imageblock">
+<div class="content">
+<img src="./images/CreateNetwork-SubnetDetails.png" alt="CreateNetwork SubnetDetails.png">
+</div>
+</div>
+</li>
+<li>
+<p>Pulsar <code>Create</code> en el asistente para crear la red.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Una vez creada la red del proyecto, hay que crear un router para conectarla a la red de la UAL de forma que las instancias de la red del proyecto tengan puedan estar conectadas a Internet. En la sección siguiente se explica cómo configurar el router del proyecto.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="truecrear-router-de-proyecto"><a class="anchor" href="#truecrear-router-de-proyecto"></a>11.3. Crear router de proyecto</h3>
+<div class="paragraph">
+<p>La red de proyecto tiene que conectarse a la red de la UAL a través de un router que crearemos a continuación.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Inicia sesión en <a href="https://openstack.stic.ual.es/horizon" target="_blank">OpenStack-STIC</a>.</p>
+</li>
+<li>
+<p>En el menú de la izquierda selecciona <code>Project | Network | Routers</code>.</p>
+</li>
+<li>
+<p>Pulsa el botón <code>Create Router</code></p>
+</li>
+<li>
+<p>En <code>Router Name</code> introduciremos el nombre del router siguiendo la plantilla nombre del proyecto seguido de <code>-net</code> (p,e. <code>johndoe-net</code>). Mantener seleccionada la opción <code>Enable Admin State</code> y dejar <code>nova</code> en <code>Availability Zone Hints</code>.</p>
+</li>
+<li>
+<p>En <code>External Network</code> seleccionar <code>ual-net</code> de la lista.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/CreateRouter.png" alt="CreateRouter.png">
+</div>
+</div>
+<div class="paragraph">
+<p>Una vez creado el router del proyecto, falta conectarlo a la red del proyecto. Por ahora, sólo se encuentra conectado a la red de externa. Podemos comprobarlo si seleccionamos <code>Project | Network | Network Topology</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/NetworkTopologyUnfinished.png" alt="NetworkTopologyUnfinished.png">
+</div>
+</div>
+<div class="paragraph">
+<p>En la sección siguiente se explica cómo terminar de configurar el router del proyecto conectándolo a la red del proyecto.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="truea-adir-interfaz-al-router"><a class="anchor" href="#truea-adir-interfaz-al-router"></a>11.4. Añadir interfaz al router</h3>
+<div class="paragraph">
+<p>Para terminar de configurar el router y la configuración de red del proyecto hay que añadir una segunda interfaz de red al router para conectarlo a la red del proyecto.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Inicia sesión en <a href="https://openstack.stic.ual.es/horizon" target="_blank">OpenStack-STIC</a>.</p>
+</li>
+<li>
+<p>Puedes crear la segunda interfaz de red del router de cualquiera de estas dos formas:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>En el menú de la izquierda selecciona <code>Project | Network | Network Topology</code>. Sitúa el ratón sobre el router y selecciona el botón <code>Add Inteface</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="./images/NetworkTopology-AddInterface-Topology.png" alt="NetworkTopology AddInterface Topology.png">
+</div>
+</div>
+</li>
+<li>
+<p>En el menú de la izquierda selecciona <code>Project | Network | Routers</code>. Haz clic sobre el enlace del router. En la ficha <code>Interfaces</code> pulsa el botón <code>Add Interface</code>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="./images/NetworkTopology-AddInterface-Router.png" alt="NetworkTopology AddInterface Router.png">
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>En el formulario <code>Add Interface</code> selecciona la red del proyecto para que el router quede conectado a la red del proyecto a través de esta interfaz.</p>
+<div class="imageblock">
+<div class="content">
+<img src="./images/AddInterface.png" alt="AddInterface.png">
+</div>
+</div>
+</li>
+<li>
+<p>Pulsa el botón <code>Submit</code> para guardar los cambios.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Finalmente, podemos ver la red configurada en <code>Project | Network | Network Topology</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/NetworkTopologyFinished.png" alt="NetworkTopologyFinished.png">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="trueoperaciones-extendidas-sobre-instancias"><a class="anchor" href="#trueoperaciones-extendidas-sobre-instancias"></a>12. Operaciones extendidas sobre instancias</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="trueredimensionar-una-instancia"><a class="anchor" href="#trueredimensionar-una-instancia"></a>12.1. Redimensionar una instancia</h3>
+<div class="paragraph">
+<p>Si una instancia necesita ampliar los recursos iniciales con los que fue creada, podemos ampliarlos cambiándole el <em>sabor (flavour)</em>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Es importante que la instancia esté apagada antes de proceder a redimensionarla.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Seleccionar <code>Project | Compute | Instances</code></p>
+</li>
+<li>
+<p>Desplegar el menú de acciones de la instancia a mover y seleccionar <code>Resize Instance</code>.</p>
+</li>
+<li>
+<p>Seleccionar el nuevo <em>sabor</em> en el cuadro de diálogo.</p>
+<div class="imageblock">
+<div class="content">
+<img src="./images/ResizeInstance.png" alt="ResizeInstance.png">
+</div>
+</div>
+</li>
+<li>
+<p>Pulsar el botón <code>Resize</code> en el asistente.</p>
+</li>
+<li>
+<p>Tras la ampliación, pulsar el botón <code>Confirm Resize/Migrate</code>.</p>
+</li>
+<li>
+<p>Iniciar la instancia con su nuevo <em>sabor</em> pulsando el bótón <code>Start Instance</code>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="truea-adir-claves-ssh"><a class="anchor" href="#truea-adir-claves-ssh"></a>12.2. Añadir claves SSH</h3>
+<div class="paragraph">
+<p>Hay ocasiones en las que queremos que en una instancia puedan iniciar sesión varios usuarios en una misma cuenta. Esto es especialmente útil para administradores. En estas situaciones la instancia debe tener la clave pública de cada uno de los usuarios que vayan a acceder a ella. Esto lo podemos realizar propocionando las distintas claves públicas en el momento de la creación o a posteriori, una vez que la instancia está creada.</p>
+</div>
+<div class="paragraph">
+<p>Acceder a la clave pública a incorporar (p.e. <code>id_rsa.pub</code>) con el comando siguiente</p>
+</div>
+<div class="paragraph">
+<p><code>cat ~/.ssh/id_rsa.pub</code></p>
+</div>
+<div class="sect3">
+<h4 id="truea-adir-varias-claves-ssh-durante-la-creaci-n-de-una-instancia"><a class="anchor" href="#truea-adir-varias-claves-ssh-durante-la-creaci-n-de-una-instancia"></a>12.2.1. Añadir varias claves SSH durante la creación de una instancia</h4>
+<div class="paragraph">
+<p>Durante lo creación de una instancia, <strong>no añadas ninguna clave durante la creación de la instancia</strong> e introduce el código siguiente en el cuadro de texto <code>Customization Script</code> del paso <code>Configuration</code> del asistente de creación de instancias.</p>
+</div>
+<script src="https://gist.github.com/ualmtorres/2b7bb36502a90bea6d0c573d2356a167.js"></script>
+<div class="paragraph">
+<p>Crea un item en <code>ssh_authorized_keys</code> con la clave pública de cada uno de los usuarios que vayan a iniciar sesión en la instancia.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>No introduzcas ninguna clave en el paso <code>Key Pair</code> del asistente. Añade todas las claves directamente en el paso <code>Configuration</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="truea-adir-nuevas-claves-ssh-a-una-instancia-existente"><a class="anchor" href="#truea-adir-nuevas-claves-ssh-a-una-instancia-existente"></a>12.2.2. Añadir nuevas claves SSH a una instancia existente</h4>
+<div class="paragraph">
+<p>Edita el archivo <code>~/.ssh/authorized_keys</code> y pega directamente al final del archivo las claves públicas a añadir.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="trueoperaciones-reservadas-a-administradores-de-openstack-stic"><a class="anchor" href="#trueoperaciones-reservadas-a-administradores-de-openstack-stic"></a>13. Operaciones reservadas a administradores de OpenStack-STIC</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="trueadministraci-n-de-usuarios"><a class="anchor" href="#trueadministraci-n-de-usuarios"></a>13.1. Administración de usuarios</h3>
+<div class="sect3">
+<h4 id="truerestablecer-contrase-a"><a class="anchor" href="#truerestablecer-contrase-a"></a>13.1.1. Restablecer contraseña</h4>
+<div class="paragraph">
+<p>Para cambiar la contraseña de un usuario, seleccionar el proyecto <code>admin</code> y mostrar la lista de usuarios seleccionando <code>Identity | Users</code>.</p>
+</div>
+<div class="paragraph">
+<p>En el menú de acciones del usuario, seleccionar <code>Change Password</code> y completar los nuevos valores en el formulario.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="truedesactivar-activar-usuario"><a class="anchor" href="#truedesactivar-activar-usuario"></a>13.1.2. Desactivar/Activar usuario</h4>
+<div class="paragraph">
+<p>Para desactivar temporalmente la cuenta de un usuario o volver a activarla, seleccionar el proyecto <code>admin</code> y mostrar la lista de usuarios seleccionando <code>Identity | Users</code>.</p>
+</div>
+<div class="paragraph">
+<p>En el menú de acciones del usuario, seleccionar <code>Disable User</code> o <code>Enable User</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="truecrear-usuario"><a class="anchor" href="#truecrear-usuario"></a>13.1.3. Crear usuario</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Seleccionar el menú <code>Identity | Users</code>.</p>
+</li>
+<li>
+<p>Pulsar el botón <code>Create user</code></p>
+</li>
+<li>
+<p>Completar los valores siguientes en el formulario</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><code>User Name</code>: Login de Campus Virtual</p>
+</li>
+<li>
+<p><code>Description</code>: Nombre completo</p>
+</li>
+<li>
+<p><code>Correo electrónico</code>: Dirección de correo electrónico</p>
+</li>
+<li>
+<p><code>Contraseña</code></p>
+</li>
+<li>
+<p>Mantener el rol <code>user</code>. Esto determinará los privilegios del usuario</p>
+</li>
+<li>
+<p>Si ya existe un proyecto al que vincular el usuario, seleccionarlo de la lista <code>Primary Project</code>. Si no, crearemos un proyecto nuevo sobre la marcha pulsando el botón <code>+</code> de la lista desplegable <code>Primary Project</code>.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Crear un proyecto sobre la marcha abre el Asistente para la creación de proyectos. Consulta la sección <a href="#truecrear-proyecto">Crear proyecto</a> para más información.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Pulsar el botón <code>Create User</code> para proceder a la creación del usuario.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="trueeliminar-usuario"><a class="anchor" href="#trueeliminar-usuario"></a>13.1.4. Eliminar usuario</h4>
+<div class="paragraph">
+<p>Para eliminar un usuario, seleccionar el proyecto <code>admin</code> y mostrar la lista de usuarios seleccionando <code>Identity | Users</code>.</p>
+</div>
+<div class="paragraph">
+<p>En el menú de acciones del usuario, seleccionar <code>Delete User</code> y confirmar su eliminación en el cuadro de diálogo.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="truemover-instancia"><a class="anchor" href="#truemover-instancia"></a>13.2. Mover instancia</h3>
+<div class="paragraph">
+<p>Para mover una instancia del servidor en el que se encuentra a otro diferente, seguir los pasos siguientes desde el proyecto <code>admin</code>:</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Es importante que la instancia esté apagada antes de proceder a cambiarla de servidor.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Seleccionar <code>Admin | Compute | Instances</code></p>
+</li>
+<li>
+<p>Desplegar el menú de acciones de la instancia a mover y seleccionar <code>Migrate Instance</code>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>No confundir la acción <code>Migrate Instance</code> con <code>Live Migrate Instance</code>. Esta última está disponible en OpenStack-STIC pero no tiene funcionalidad asociada por lo que no debe usarse.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Tras unos instantes se pedirá que se confirme la migración a otro servidor</p>
+<div class="imageblock">
+<div class="content">
+<img src="./images/ConfirmMigration.png" alt="ConfirmMigration.png">
+</div>
+</div>
+</li>
+<li>
+<p>Pulsar el botón <code>Confirm Resize/Migrate</code>.</p>
+</li>
+<li>
+<p>Una vez migrada la instancia a otro servidor, iniciar la instancia pulsando el bótón <code>Hard Reboot Instance</code>. La opción <code>Start Instance</code> de instancias de otros proyectos no está disponible para el usuario <code>admin</code>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueadministraci-n-de-proyectos"><a class="anchor" href="#trueadministraci-n-de-proyectos"></a>13.3. Administración de proyectos</h3>
+<div class="sect3">
+<h4 id="truecrear-proyecto"><a class="anchor" href="#truecrear-proyecto"></a>13.3.1. Crear proyecto</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Inicia sesión en <a href="https://openstack.stic.ual.es/horizon" target="_blank">OpenStack-STIC</a>.</p>
+</li>
+<li>
+<p>En el menú de la izquierda selecciona <code>Identity | Projects</code>.</p>
+</li>
+<li>
+<p>Pulsa el botón <code>Create Project</code></p>
+</li>
+<li>
+<p>En la ficha <code>Project Information</code> del asistente completa el nombre del proyecto (p.e. el login del usuario en Campus Virtual si es un proyecto individual o cualquier otro si es un proyecto compartido).</p>
+</li>
+<li>
+<p>Completa la descripción. Para proyectos individuales se recomienda seguir la plantilla <code>Proyecto de</code> seguido del nombre completo</p>
+<div class="imageblock">
+<div class="content">
+<img src="./images/CreateProject-Information.png" alt="CreateProject Information.png">
+</div>
+</div>
+</li>
+<li>
+<p>En la ficha <code>Project Members</code> agrega desde la izquierda (<code>All Users</code>) los miembros del proyecto hasta que la parte derecha (<code>Project Members</code>) tenga los miembros deseados.</p>
+<div class="imageblock">
+<div class="content">
+<img src="./images/CreateProject-Members.png" alt="CreateProject Members.png">
+</div>
+</div>
+</li>
+<li>
+<p>Pulsa <code>Create Project</code>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="trueadministrar-miembros"><a class="anchor" href="#trueadministrar-miembros"></a>13.3.2. Administrar miembros</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Inicia sesión en <a href="https://openstack.stic.ual.es/horizon" target="_blank">OpenStack-STIC</a>.</p>
+</li>
+<li>
+<p>En el menú de la izquierda selecciona <code>Identity | Projects</code>.</p>
+</li>
+<li>
+<p>En la lista <code>Projects</code> selecciona el proyecto al que quieras modificar sus miembros, y selecciona la opción <code>Manage Members</code> en el listbox de <code>Actions</code>.</p>
+</li>
+<li>
+<p>En la ficha <code>Project Members</code> agrega desde la izquierda (<code>All Users</code>) los miembros del proyecto hasta que la parte derecha (<code>Project Members</code>) tenga los miembros deseados.</p>
+</li>
+<li>
+<p>Pulsa <code>Save</code> para guardar los cambios.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="truemodificar-la-cuota-de-un-proyecto"><a class="anchor" href="#truemodificar-la-cuota-de-un-proyecto"></a>13.3.3. Modificar la cuota de un proyecto</h4>
+<div class="paragraph">
+<p>Los proyectos de OpenStack-STIC ofrecen una cuota predetermianda de recursos de cómputo, almacenamiento y red. Es posible cambiar la cuota asignada siguiendo estos pasos:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Inicia sesión en <a href="https://openstack.stic.ual.es/horizon" target="_blank">OpenStack-STIC</a>.</p>
+</li>
+<li>
+<p>En el menú de la izquierda selecciona <code>Identity | Projects</code>.</p>
+</li>
+<li>
+<p>En la lista <code>Projects</code> selecciona el proyecto al que quieras modificar sus miembros, y selecciona la opción <code>Modify Quotas</code> en el listbox de <code>Actions</code>.</p>
+</li>
+<li>
+<p>Configura los valores adecuados el cuadro de diálogo <code>Edit Quotas</code>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="./images/EditQuotas.png" alt="EditQuotas.png">
+</div>
+</div>
+</li>
+<li>
+<p>Pulsa <code>Save</code> para guardar los cambios.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trueasignar-ip-flotante-a-un-proyecto"><a class="anchor" href="#trueasignar-ip-flotante-a-un-proyecto"></a>13.4. Asignar IP flotante a un proyecto</h3>
+<div class="paragraph">
+<p>La red externa de OpenStack-STIC tiene reservado un rango de direcciones IP para servidores a los que poder asignar nombres DNS, servidores particulares, entre otros. Así, el rango de direcciones al que se accede cuando se solicita una IP flotante es un subconjunto del conjunto total de direcciones de la red <code>ual-net</code>.</p>
+</div>
+<div class="paragraph">
+<p>Para asignar a un proyecto concreto una IP flotante del grupo de direcciones reservadas, un administrador seguirá estos pasos:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Inicia sesión en <a href="https://openstack.stic.ual.es/horizon" target="_blank">OpenStack-STIC</a>.</p>
+</li>
+<li>
+<p>En el menú de la izquierda selecciona <code>Admin | Network | Floating IPs</code>.</p>
+</li>
+<li>
+<p>Pulsa el botón <code>Allocate IP to Project</code></p>
+</li>
+<li>
+<p>En el cuadro de diálogo seleccionar el proyecto al que asignar la IP flotante, indicar la IP a asignar y proporcionar una descripción.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/AllocateFloatingIPAdmin.png" alt="AllocateFloatingIPAdmin.png">
+</div>
+</div>
+<div class="paragraph">
+<p>Tras estos pasos, el proyecto de destino tendrá adjudicada esa IP flotante para usarla convenientemente.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="truerecursos-complementarios"><a class="anchor" href="#truerecursos-complementarios"></a>14. Recursos complementarios</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -1862,7 +2765,7 @@ $ sudo mount 192.168.128.17:/var/lib/manila/mnt/share-b65fa3e5-233d-4ea5-9ad2-ec
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-04-05 12:57:27 CEST
+Last updated 2020-04-06 13:54:03 CEST
 </div>
 </div>
 </body>
