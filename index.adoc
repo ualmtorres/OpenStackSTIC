@@ -323,7 +323,7 @@ image::AllocateFloatingIP.png[]
 El STIC tiene reservada la red 192.168.128.0/21 para OpenStack-STIC.
 ====
 
-De vuelta al formulario, se mostrará la IP flotante asignada de la red `ext-net`. Pulsar el botón `Associate`.
+De vuelta al formulario, se mostrará la IP flotante asignada de la red `ual-net`. Pulsar el botón `Associate`.
 
 image::AssignedFloatingIP.png[]
 
